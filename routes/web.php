@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
-use App\Http\Controllers\Admin\ProjectController; // <---- Importare il controller da usare!!
+
+use App\Http\Controllers\ApartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
         // Admin Post CRUD
-        Route::resource('projects', ProjectController::class);
+        Route::resource('apartments', ApartmentController::class);
     });
 
 require __DIR__ . '/auth.php';
