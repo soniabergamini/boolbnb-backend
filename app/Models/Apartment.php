@@ -21,4 +21,8 @@ class Apartment extends Model
         'image',
         'visible'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
