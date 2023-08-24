@@ -22,7 +22,13 @@ class Apartment extends Model
         'visible'
     ];
 
-    public function user() {
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 }

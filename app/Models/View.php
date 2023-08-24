@@ -12,4 +12,9 @@ class View extends Model
     protected $fillable = [
         'user_ip'
     ];
+
+    public function apartment()
+    {
+        return $this->belongsTo(Apartment::class);
+    }
 }
