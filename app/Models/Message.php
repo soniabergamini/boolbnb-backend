@@ -12,4 +12,8 @@ class Message extends Model
         'user_mail',
         'text'
     ];
+
+    public function apartment(){
+        return $this->belongsTo(Apartment::class);
+    }
 }

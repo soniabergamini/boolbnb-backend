@@ -22,6 +22,10 @@ class Apartment extends Model
         'visible'
     ];
 
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
+
     public function views()
     {
         return $this->hasMany(View::class);
