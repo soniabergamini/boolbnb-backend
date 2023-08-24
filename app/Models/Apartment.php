@@ -21,4 +21,9 @@ class Apartment extends Model
         'image',
         'visible'
     ];
+
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
 }
