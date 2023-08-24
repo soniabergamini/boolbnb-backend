@@ -19,7 +19,8 @@ class Apartment extends Model
         'longitude',
         'address',
         'image',
-        'visible'
+        'visible',
+        'user_id'
     ];
 
     // One to Many Relation Message -> Apartment

@@ -10,7 +10,8 @@ class View extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_ip'
+        'user_ip',
+        'apartment_id'
     ];
 
     // One to Many Relation View -> Apartment

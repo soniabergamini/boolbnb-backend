@@ -10,7 +10,8 @@ class Message extends Model
     use HasFactory;
     protected $fillable = [
         'user_mail',
-        'text'
+        'text',
+        'apartment_id'
     ];
 
     // One to Many Relation Message -> Apartment
