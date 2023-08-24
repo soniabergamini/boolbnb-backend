@@ -23,7 +23,8 @@ class Apartment extends Model
     ];
 
     // One to Many Relation Message -> Apartment
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
 
@@ -40,7 +41,14 @@ class Apartment extends Model
     }
 
     // Many to Many Relation Service -> Apartment
-    public function services() {
+    public function services()
+    {
         return $this->belongsToMany(Service::class);
+    }
+
+    // Many to Many Relation Sponsorship -> Apartment
+    public function sponsorships()
+    {
+        return $this->belongsToMany(Sponsorship::class);
     }
 }
