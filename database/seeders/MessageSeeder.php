@@ -36,8 +36,7 @@ class MessageSeeder extends Seeder
             $newMessage = new Message();
             $newMessage->user_mail = $key;
             $newMessage->text = $message;
-            $newMessage->apartment_id = $apartments->random(1, 4)->id;
-            // $newMessage->apartment_id= 1;
+            $newMessage->apartment_id = 1;
             $newMessage->save();
         }
     }
