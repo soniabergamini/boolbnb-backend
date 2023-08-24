@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 20);
             $table->double('price', 3, 2);
-            $table->tinyInteger('hours');
+            $table->smallInteger('hours');
             $table->timestamps();
         });
     }
