@@ -13,6 +13,7 @@ class Message extends Model
         'text'
     ];
 
+    // One to Many Relation Message -> Apartment
     public function apartment(){
         return $this->belongsTo(Apartment::class);
     }

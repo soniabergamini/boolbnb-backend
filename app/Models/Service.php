@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class View extends Model
+class Service extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_ip'
+        'name'
     ];
 
-    // One to Many Relation View -> Apartment
-    public function apartment()
-    {
-        return $this->belongsTo(Apartment::class);
+    // Many to Many Relation Service -> Apartment
+    public function apartments() {
+        return $this->belongsToMany(Apartment::class);
     }
+
 }
