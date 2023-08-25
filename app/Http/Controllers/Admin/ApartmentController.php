@@ -64,6 +64,7 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         //
+        return view("admin.apartments.show", compact("apartment"));
     }
 
     /**
@@ -75,6 +76,8 @@ class ApartmentController extends Controller
     public function edit(Apartment $apartment)
     {
         //
+        $services = Service::all();
+        return view('admin.apartments.edit', compact('services'));
     }
 
     /**
@@ -98,5 +101,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         //
+        $apartment->delete();
+        return redirect()->route("admin.apartments.index");
     }
 }
