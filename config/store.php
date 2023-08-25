@@ -11,7 +11,7 @@
                 'latitude' => 41.967623490519905,
                 'longitude' => 12.743934821499842,
                 'address' => 'Via Roma',
-                'image' => 'apartment1',
+                'image' => 'apartment1.jpeg',
                 'visible' => true
             ],
             [
@@ -23,7 +23,7 @@
                 'latitude' => 41.959310774356474,
                 'longitude' => 12.750801276147907,
                 'address' => 'Viale della Repubblica',
-                'image' => 'apartment2',
+                'image' => 'apartment2.jpeg',
                 'visible' => false
             ],
             [
@@ -35,7 +35,7 @@
                 'latitude' => 41.97096902436032,
                 'longitude' => 12.784646101153111,
                 'address' => 'Via Venezia',
-                'image' => 'apartment3',
+                'image' => 'apartment3.jpeg',
                 'visible' => true
             ],
             [
@@ -47,7 +47,7 @@
                 'latitude' => 41.57423442581285,
                 'longitude' => 12.51246734975687,
                 'address' => 'Via delle bandiere',
-                'image' => 'apartment4',
+                'image' => 'apartment4.jpeg',
                 'visible' => true
             ]
         ],
