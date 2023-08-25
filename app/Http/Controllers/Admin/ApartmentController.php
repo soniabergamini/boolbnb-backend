@@ -7,6 +7,8 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Service;
+use Illuminate\Support\Facades\Storage;
+
 
 class ApartmentController extends Controller
 {
@@ -30,7 +32,6 @@ class ApartmentController extends Controller
     {
         $services = Service::all();
         return view('admin.apartments.create', compact('services'));
-        
     }
 
     /**
@@ -41,7 +42,17 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
-
+        $data = $request->validated();
+        $data['user_id'] = auth()->user()->id;
+        $data['latitude'] = 12356;
+        $data['longitude'] = 12356;
+        $data['image'] = Storage::put('uploads', $data['image']);
+        $newApartment = new Apartment();
+        $newApartment->fill($data);
+        $newApartment->save();
+        $newApartment->services()->attach($data['services']);
+        // return to_route('admin.projects.show', $newApatment);
+        return redirect()->route('admin.apartments.show', $newApartment->id);
     }
 
     /**

@@ -21,7 +21,7 @@
 
                 <div class="mb-3">
                     <label class="mb-1" for="name">Apartment's name</label>
-                    <input required type="text" minlength="" name="name" id="name" value="{{ old('name') }}"
+                    <input required type="text"  minlength="4" name="name" id="name" value="{{ old('name') }}"
                         class="form-control">
                 </div>
                 @error('name')
@@ -100,13 +100,13 @@
                 <div class="d-flex">
                     <div class="form-check mb-3 me-3">
 
-                        <input class="form-check-input" type="radio" name="visible" id="visible" checked>
+                        <input class="form-check-input" type="radio" value="1" name="visible" id="visible" checked>
                         <label class="form-check-label" for="visible">
                             Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="visible" id="visible2">
+                        <input class="form-check-input" type="radio" value="0" name="visible" id="visible2">
                         <label class="form-check-label" for="visible2">
                             No
                         </label>
