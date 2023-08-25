@@ -23,13 +23,7 @@ class MessageSeeder extends Seeder
         Message::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $messages = [
-            "bruno@gmail.com" => "Hello, my name is bruno contact me please" ,
-            "fabri@gmail.com" => "Hi, is the apartment available for the first week of august?",
-            "sonia@gmail.com" => "Good morning, is there a bus stop near your apartment?",
-            "wilmer@gmail.com" => "Hi, does your apartment host dogs?"
-        ];
-
+        $messages = config('store.messages');
         $apartments = Apartment::all(["id"]);
 
         foreach ($messages as $key => $message) {

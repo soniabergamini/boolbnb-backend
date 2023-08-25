@@ -21,24 +21,7 @@ class SponsorshipSeeder extends Seeder
         Sponsorship::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $sponsorships = [
-
-            [
-                'name' => 'Basic',
-                'price' => 2.99,
-                'hours' => 24,
-            ],
-            [
-                'name' => 'Standard',
-                'price' => 5.99,
-                'hours' => 72,
-            ],
-            [
-                'name' => 'Premium',
-                'price' => 9.99,
-                'hours' => 144,
-            ],
-        ];
+        $sponsorships = config('store.sponsorships');
 
         foreach ($sponsorships as $sponsorship) {
             $newSponsorship = new Sponsorship();

@@ -21,34 +21,7 @@ class ServiceSeeder extends Seeder
         Service::truncate();
         Schema::enableForeignKeyConstraints();
 
-        $services = [
-            'Wifi',
-            'Kitchen',
-            'Washing machine',
-            'Dryer',
-            'Air conditioning',
-            'Heating',
-            'Dedicated workspace',
-            'TV',
-            'Hair dryer',
-            'Iron',
-            'Features',
-            'Pool',
-            'Hot tub',
-            'Free parking',
-            'EV charger',
-            'Cot',
-            'Gym',
-            'BBQ grill',
-            'Breakfast',
-            'Smoking allowed',
-            'Indoor fireplace',
-            'Beachfront',
-            'Waterfront',
-            'Safety',
-            'Smoke alarm',
-            'Carbon monoxide alarm'
-        ];
+        $services = config('store.services');
 
         foreach ($services as $item) {
             $newService = new Service();
