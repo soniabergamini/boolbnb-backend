@@ -101,6 +101,10 @@
             "fabri@gmail.com" => "Hi, is the apartment available for the first week of august?",
             "sonia@gmail.com" => "Good morning, is there a bus stop near your apartment?",
             "wilmer@gmail.com" => "Hi, does your apartment host dogs?"
+        ],
+        'tomtomApi' => [
+            'apiUrl' => 'https://api.tomtom.com/search/2/geocode/',
+            'apiKey' => '.json?key=DSxLIKbH4BzG3QRQ8rCnehrLbw3XwABh'
         ]
     ];
 ?>

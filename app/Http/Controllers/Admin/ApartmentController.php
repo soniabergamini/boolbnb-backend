@@ -7,6 +7,7 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Service;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -44,8 +45,10 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
-        $data['latitude'] = 12356;
-        $data['longitude'] = 12356;
+        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
+        $response = Http::get($apiURL); // API CALL: Get geographical coordinates
+        $data['latitude'] = $response['results']['0']['position']['lat'];
+        $data['longitude'] = $response['results']['0']['position']['lon'];
         $data['image'] = Storage::put('uploads', $data['image']);
         $newApartment = new Apartment();
         $newApartment->fill($data);
@@ -64,7 +67,6 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
         return view("admin.apartments.show", compact("apartment"));
     }
 
@@ -76,7 +78,6 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
         $services = Service::all();
         return view('admin.apartments.edit', compact('services', 'apartment'));
     }
@@ -101,7 +102,6 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
     }
