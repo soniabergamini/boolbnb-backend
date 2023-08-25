@@ -19,7 +19,7 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::where('user_id', auth()->user()->id)->get();
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -50,8 +50,9 @@ class ApartmentController extends Controller
         $newApartment = new Apartment();
         $newApartment->fill($data);
         $newApartment->save();
-        $newApartment->services()->attach($data['services']);
-        // return to_route('admin.projects.show', $newApatment);
+        if ($request['services']) {
+            $newApartment->services()->attach($data['services']);
+        }
         return redirect()->route('admin.apartments.show', $newApartment->id);
     }
 

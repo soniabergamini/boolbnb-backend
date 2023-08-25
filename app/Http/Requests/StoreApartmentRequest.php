@@ -36,7 +36,6 @@ class StoreApartmentRequest extends FormRequest
             'visible' => 'required|boolean',
             'user_id' => 'exists:user,id|nullable',
             'services' => 'exists:services,id|nullable',
-
         ];
     }
 }
