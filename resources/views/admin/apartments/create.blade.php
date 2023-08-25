@@ -15,7 +15,7 @@
                 </div>
             @endif
 
-            <form class="form-control needs-validation p-2" action="{{ route('admin.apartments.store') }}" method="post">
+            <form class="form-control needs-validation p-2" action="{{ route('admin.apartments.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
 
 
