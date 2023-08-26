@@ -25,10 +25,10 @@ class StoreApartmentRequest extends FormRequest
     {
         return [
             "name" => 'required|min:4',
-            'room_number' => 'required|numeric|min:1',
-            "bed_number" => 'required|numeric|min:1',
-            'bathroom_number' => 'required|numeric|min:1',
-            'square_meters' => 'required|numeric|min:10',
+            'room_number' => 'required|numeric|min:1|max:1500',
+            "bed_number" => 'required|numeric|min:1|max:1500',
+            'bathroom_number' => 'required|numeric|min:1|max:1500',
+            'square_meters' => 'required|numeric|min:10|max:5000',
             'address' => 'required|min:10',
             'latitude' => 'nullable',
             'longitude' => 'nullable',

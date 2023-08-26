@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="d-flex flex-wrap">
+<div class="d-flex flex-wrap gap-3 p-2 my-3">
     @foreach ($apartments as $apartment)
         <div class="card" style="width: 18rem;">
         <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image">

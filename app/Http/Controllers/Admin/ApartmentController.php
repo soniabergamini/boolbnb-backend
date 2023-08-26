@@ -91,7 +91,18 @@ class ApartmentController extends Controller
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
-        //
+        $data = $request->validated();
+        $data['user_id'] = auth()->user()->id;
+        $data['image'] = Storage::put('uploads', $data['image']);
+        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
+        $response = Http::get($apiURL); // API CALL: Get geographical coordinates
+        $data['latitude'] = $response['results']['0']['position']['lat'];
+        $data['longitude'] = $response['results']['0']['position']['lon'];
+        $apartment->update($data);
+        if ($request['services']) {
+            $apartment->services()->syncWithoutDetaching($data['services']);
+        }
+        return to_route('admin.apartments.show', $apartment);
     }
 
     /**
