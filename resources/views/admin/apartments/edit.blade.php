@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid mt-4 d-flex flex-wrap justify-content-between">
         <div class="row w-100">
-            <h1 class="mb-5">Edit apartment</h1>
+            <h1 class="mb-5">Edit {{ $apartment->name ?? 'your' }} apartment</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -21,7 +21,7 @@
 
                 <div class="mb-3">
                     <label class="mb-1" for="name">Apartment's name</label>
-                    <input required type="text"  minlength="4" name="name" id="name" value="{{ old('name') ?? $apartment->name }}"
+                    <input required type="text" minlength="4" name="name" id="name" value="{{ old('name') ?? $apartment->name }}"
                         class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('name')
@@ -30,8 +30,7 @@
 
                 <div class="mb-3">
                     <label class="mb-1" for="room_number">Rooms</label>
-                    <input required type="number" min="1" name="room_number" id="room_number"
-                        class="form-control @error('room_number') is-invalid @enderror">{{ old('room_number') ?? $apartment->room_number }}
+                    <input required type="number" min="1" name="room_number" id="room_number" value="{{ old('room_number') ?? $apartment->room_number }}" class="form-control @error('room_number') is-invalid @enderror">
                 </div>
                 @error('room_number')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -39,8 +38,7 @@
 
                 <div class="mb-3">
                     <label class="mb-1" for="bed_number">Beds</label>
-                    <input required type="number" min="1" name="bed_number" id="bed_number"
-                        class="form-control @error('bed_number') is-invalid @enderror">{{ old('bed_number') ?? $apartment->bed_number }}
+                    <input required type="number" min="1" name="bed_number" id="bed_number" value="{{ old('bed_number') ?? $apartment->bed_number }}" class="form-control @error('bed_number') is-invalid @enderror">
                 </div>
                 @error('bed_number')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -65,9 +63,8 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label class="mb-1" for="address">Address</label>
-                    <input required type="text" min="10" name="address" id="address"
-                        value="{{ old('address') ?? $apartment->address }}" class="form-control @error('address') is-invalid @enderror">
+                    <label class="mb-1" for="address">Full address</label>
+                    <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam" min="10" name="address" id="address" value="{{ old('address') ?? $apartment->address }}" class="form-control @error('address') is-invalid @enderror">
                 </div>
                 @error('address')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -114,17 +111,19 @@
                 </div>
 
                 <div class="mb-3">
-                    
+
                     <label class="mb-1">Select services:</label>
-                    @foreach ($services as $i => $item)
-                        <div class="form-check">
-                            <input type="checkbox" name="services[]" id="services{{ $i }}"
-                                value="{{ $item->id }}" class="form-check-input" @checked(in_array($item->id, old('services') ?? $apartment->services->pluck('id')->toArray()))>
-                            <label for="services{{ $i }}"
-                                class="form-check-label">{{ $item->name }}</label>
-                        </div>
-                    @endforeach
-                    
+                    <div class="d-flex flex-wrap">
+                        @foreach ($services as $i => $item)
+                            <div class="form-check w-25">
+                                <input type="checkbox" name="services[]" id="services{{ $i }}"
+                                    value="{{ $item->id }}" class="form-check-input" @checked(in_array($item->id, old('services') ?? $apartment->services->pluck('id')->toArray()))>
+                                <label for="services{{ $i }}"
+                                    class="form-check-label">{{ $item->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+
                 </div>
                 @error('services')
                     <div class="invalid-feedback">{{ $message }}</div>

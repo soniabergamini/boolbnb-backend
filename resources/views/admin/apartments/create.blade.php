@@ -15,23 +15,22 @@
                 </div>
             @endif
 
-            <form class="form-control needs-validation p-2" action="{{ route('admin.apartments.store') }}" method="post" enctype="multipart/form-data">
+            <form class="form-control needs-validation p-2" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-
                 <div class="mb-3">
-                    <label class="mb-1" for="name">Apartment's name</label>
-                    <input required type="text"  minlength="4" name="name" id="name" value="{{ old('name') }}"
-                        class="form-control">
+                    <label class="mb-1" for="name">Apartment name</label>
+                    <input required type="text" minlength="4" name="name" id="name" value="{{ old('name') }}"
+                        class="form-control @error('name') is-invalid @enderror" autofocus>
                 </div>
                 @error('name')
-                    <div class="invalid-feedback">{{ $message }}</div>
+                    <div class="invalid-feedback" role="alert">{{ $message }}</div>
                 @enderror
 
                 <div class="mb-3">
                     <label class="mb-1" for="room_number">Rooms</label>
-                    <input required type="number" min="1" name="room_number" id="room_number"
-                        class="form-control">{{ old('room_number') }}
+                    <input required type="number" min="1" name="room_number" id="room_number" value="{{ old('room_number') }}"
+                        class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('room_number')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -39,8 +38,8 @@
 
                 <div class="mb-3">
                     <label class="mb-1" for="bed_number">Beds</label>
-                    <input required type="number" min="1" name="bed_number" id="bed_number"
-                        class="form-control">{{ old('bed_number') }}
+                    <input required type="number" min="1" name="bed_number" id="bed_number" value="{{ old('bed_number') }}"
+                        class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('bed_number')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -49,7 +48,7 @@
                 <div class="mb-3">
                     <label class="mb-1" for="bathroom_number">Bathrooms</label>
                     <input required type="number" min="1" name="bathroom_number" id="bathroom_number"
-                        value="{{ old('bathroom_number') }}" class="form-control">
+                        value="{{ old('bathroom_number') }}" class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('bathroom_number')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -58,16 +57,16 @@
                 <div class="mb-3">
                     <label class="mb-1" for="square_meters">Square meters</label>
                     <input required type="number" min="10" name="square_meters" id="square_meters"
-                        value="{{ old('square_meters') }}" class="form-control">
+                        value="{{ old('square_meters') }}" class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('square_meters')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
                 <div class="mb-3">
-                    <label class="mb-1" for="address">Address</label>
-                    <input required type="text" min="10" name="address" id="address"
-                        value="{{ old('address') }}" class="form-control">
+                    <label class="mb-1" for="address">Full address</label>
+                    <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam" min="10" name="address" id="address"
+                        value="{{ old('address') }}" class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('address')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -114,17 +113,19 @@
                 </div>
 
                 <div class="mb-3">
-                    
+
                     <label class="mb-1">Select services:</label>
-                    @foreach ($services as $i => $item)
-                        <div class="form-check">
-                            <input type="checkbox" name="services[]" id="services{{ $i }}"
-                                value="{{ $item->id }}" class="form-check-input" @checked(in_array($item->id, old('services') ?? []))>
-                            <label for="services{{ $i }}"
-                                class="form-check-label">{{ $item->name }}</label>
-                        </div>
-                    @endforeach
-                    
+                    <div class="d-flex flex-wrap">
+                        @foreach ($services as $i => $item)
+                            <div class="form-check w-25">
+                                <input type="checkbox" name="services[]" id="services{{ $i }}"
+                                    value="{{ $item->id }}" class="form-check-input" @checked(in_array($item->id, old('services') ?? []))>
+                                <label for="services{{ $i }}"
+                                    class="form-check-label">{{ $item->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+
                 </div>
                 @error('services')
                     <div class="invalid-feedback">{{ $message }}</div>

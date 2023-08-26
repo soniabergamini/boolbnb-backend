@@ -56,7 +56,7 @@ class ApartmentController extends Controller
         if ($request['services']) {
             $newApartment->services()->attach($data['services']);
         }
-        return redirect()->route('admin.apartments.show', $newApartment->id);
+        return redirect()->route('admin.apartments.show', $newApartment);
     }
 
     /**
