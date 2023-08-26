@@ -99,9 +99,13 @@ class ApartmentController extends Controller
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
         $apartment->update($data);
-        if ($request['services']) {
+
+        /* if ($request['services']) {
             $apartment->services()->syncWithoutDetaching($data['services']);
-        }
+        } */
+
+        $apartment->services()->sync($request->input('services'));
+        
         return to_route('admin.apartments.show', $apartment);
     }
 
