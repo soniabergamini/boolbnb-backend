@@ -99,7 +99,8 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
-    
+        $data['image'] = Storage::put('uploads', $data['image']);
+        
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
         
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
@@ -107,17 +108,11 @@ class ApartmentController extends Controller
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
         
-        $data['image'] = Storage::put('uploads', $data['image']);
+        $apartment->update($data);
+    
+        $apartment->services()->sync($request->input('services'));
         
-        $newApartment = new Apartment();
-        $newApartment->fill($data);
-        $newApartment->save();
-        
-        if ($request['services']) {
-            $newApartment->services()->attach($data['services']);
-        }
-        
-        return redirect()->route('admin.apartments.show', $newApartment);
+        return redirect()->route('admin.apartments.show', $apartment);
     }
 
     /**
