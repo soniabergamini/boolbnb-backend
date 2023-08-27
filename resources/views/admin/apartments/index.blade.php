@@ -4,7 +4,7 @@
 <div class="d-flex flex-wrap gap-3 p-2 my-3">
     @foreach ($apartments as $apartment)
         <div class="card" style="width: 18rem;">
-        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image">
+        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image" style="height: 12rem;">
         <div class="card-body">
             <h5 class="card-title mb-3">{{ $apartment->name }}</h5>
             <div class="card-text">

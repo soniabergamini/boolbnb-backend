@@ -10,7 +10,6 @@ use App\Models\Service;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
-
 class ApartmentController extends Controller
 {
     /**
@@ -45,17 +44,24 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
+    
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
-        $response = Http::get($apiURL); // API CALL: Get geographical coordinates
+        
+        $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
+        
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
+        
         $data['image'] = Storage::put('uploads', $data['image']);
+        
         $newApartment = new Apartment();
         $newApartment->fill($data);
         $newApartment->save();
+        
         if ($request['services']) {
             $newApartment->services()->attach($data['services']);
         }
+        
         return redirect()->route('admin.apartments.show', $newApartment);
     }
 
