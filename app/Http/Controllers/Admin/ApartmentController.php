@@ -48,7 +48,7 @@ class ApartmentController extends Controller
         $data = $request->validated();
         $data['user_id'] = Auth::id();
 
-        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
+        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . '.json?key=' . env('TOMTOM_API_KEY');
 
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
         if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
@@ -116,9 +116,9 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::id();
         $data['image'] = $request['image'] ? Storage::put('uploads', $data['image']) : $apartment->image;
 
-        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
-
+        $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . '.json?key=' . env('TOMTOM_API_KEY');
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
+
         // Policy Filter
         if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
             return redirect()->back()->withErrors('Your apartment address is incorrect.');

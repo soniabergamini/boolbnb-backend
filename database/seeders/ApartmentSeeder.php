@@ -44,7 +44,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->address = $apartment['address'];
             $newApartment->image = 'placeholder/' . $apartment['image'];
             $newApartment->visible = $apartment['visible'];
-            $newApartment->user_id = $users->random()->id;
+            $newApartment->user_id = 1;
 
             // Add Random Services
             $serviceNum = rand(8,18);

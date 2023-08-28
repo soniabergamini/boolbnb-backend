@@ -103,8 +103,7 @@
             "wilmer@gmail.com" => "Hi, does your apartment host dogs?"
         ],
         'tomtomApi' => [
-            'apiUrl' => 'https://api.tomtom.com/search/2/geocode/',
-            'apiKey' => '.json?key=DSxLIKbH4BzG3QRQ8rCnehrLbw3XwABh'
+            'apiUrl' => 'https://api.tomtom.com/search/2/geocode/'
         ]
     ];
 ?>
