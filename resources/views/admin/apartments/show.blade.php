@@ -1,8 +1,19 @@
 @extends('layouts.admin')
 @section('content')
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <div class="card" style="width: 18rem;">
-        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image" style="height: 12rem;">
+        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image"
+            style="height: 12rem;">
         <div class="card-body">
             <h5 class="card-title mb-3">{{ $apartment->name }}</h5>
             <div class="card-text">

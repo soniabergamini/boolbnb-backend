@@ -7,6 +7,7 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Service;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,7 +20,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::where('user_id', auth()->user()->id)->get();
+        // Policy Filter
+        $apartments = Apartment::where('user_id', Auth::id())->get();
+
         return view('admin.apartments.index', compact('apartments'));
     }
 
@@ -43,25 +46,27 @@ class ApartmentController extends Controller
     public function store(StoreApartmentRequest $request)
     {
         $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
-    
+        $data['user_id'] = Auth::id();
+
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
-        
+
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
-        
+        if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
+            return redirect()->back()->withErrors('Your apartment address is incorrect.');
+        }
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
-        
+
         $data['image'] = Storage::put('uploads', $data['image']);
-        
+
         $newApartment = new Apartment();
         $newApartment->fill($data);
         $newApartment->save();
-        
+
         if ($request['services']) {
             $newApartment->services()->attach($data['services']);
         }
-        
+
         return redirect()->route('admin.apartments.show', $newApartment);
     }
 
@@ -73,6 +78,11 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+        // Policy Filter
+        if($apartment->user_id != Auth::id()) {
+            return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
+        }
+
         return view("admin.apartments.show", compact("apartment"));
     }
 
@@ -84,6 +94,11 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
+        // Policy Filter
+        if($apartment->user_id != Auth::id()) {
+            return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
+        }
+
         $services = Service::all();
         return view('admin.apartments.edit', compact('services', 'apartment'));
     }
@@ -98,20 +113,24 @@ class ApartmentController extends Controller
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
         $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
+        $data['user_id'] = Auth::id();
         $data['image'] = Storage::put('uploads', $data['image']);
-        
+
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
-        
+
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
-        
+        // Policy Filter
+        if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
+            return redirect()->back()->withErrors('Your apartment address is incorrect.');
+        }
+
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
-        
+
         $apartment->update($data);
-    
+
         $apartment->services()->sync($request->input('services'));
-        
+
         return redirect()->route('admin.apartments.show', $apartment);
     }
 
@@ -123,6 +142,11 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
+        // Policy Filter
+        if($apartment->user_id != Auth::id()) {
+            return redirect()->route('admin.apartments.index');
+        }
+
         $apartment->delete();
         return redirect()->route("admin.apartments.index");
     }

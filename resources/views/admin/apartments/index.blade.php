@@ -2,6 +2,17 @@
 @section('content')
 
 <div class="d-flex flex-wrap gap-3 p-2 my-3">
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     @foreach ($apartments as $apartment)
         <div class="card" style="width: 18rem;">
         <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image" style="height: 12rem;">
