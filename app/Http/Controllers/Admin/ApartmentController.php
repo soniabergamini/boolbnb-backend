@@ -114,7 +114,7 @@ class ApartmentController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = Auth::id();
-        $data['image'] = Storage::put('uploads', $data['image']);
+        $data['image'] = $request['image'] ? Storage::put('uploads', $data['image']) : $apartment->image;
 
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . config('store.tomtomApi.apiKey');
 

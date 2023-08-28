@@ -73,8 +73,13 @@
                 <div class="mt-3">
                     <label class="mb-1" for="image">Upload image</label>
                     <div class="d-flex align-items-center p-2 gap-2">
-                        <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}"
+                        @if($apartment->image)
+                            <img id="previewCreate" src="{{ asset('/storage') . '/' . $apartment->image }}" alt="img" width="50" height="50" class="object-fit-cover rounded">
+                            <input type="hidden" name="hidden_image" value="{{$apartment->image}}">
+                        @else
+                            <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}"
                             alt="img" width="50" height="50" class="object-fit-cover rounded">
+                        @endif
                         <input type="file" name="image" id="imgCreate"
                             class="form-control @error('image') is-invalid @enderror">
                     </div>

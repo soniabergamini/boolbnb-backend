@@ -32,7 +32,7 @@ class UpdateApartmentRequest extends FormRequest
             'address' => 'required|min:10',
             'latitude' => 'nullable',
             'longitude' => 'nullable',
-            'image' => 'required|image|max:10240',
+            'image' => 'nullable|image|max:10240',
             'visible' => 'required|boolean',
             'user_id' => 'exists:user,id|nullable',
             'services' => 'exists:services,id|nullable',
