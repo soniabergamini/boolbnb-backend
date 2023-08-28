@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('views', function (Blueprint $table) {
             //
-            $table->foreignId("apartment_id")->nullable()->constrained();
+            $table->foreignId("apartment_id")->nullable()->constrained()->onDelete('cascade');
         });
     }
 
