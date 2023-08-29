@@ -49,8 +49,8 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::id();
 
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . '.json?key=' . env('TOMTOM_API_KEY');
-
-        $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
+        // $response = Http::get($apiURL);
+        $response = Http::withOptions(['verify' => false])->get($apiURL); // Disable certificate verification temporarily
         if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
             return redirect()->back()->withErrors('Your apartment address is incorrect.');
         }

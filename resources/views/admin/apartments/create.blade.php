@@ -28,6 +28,14 @@
                 @enderror
 
                 <div class="mt-3">
+                    <label class="mb-1" for="description">Apartment description</label>
+                    <textarea required name="description" id="description" cols="10" rows="5" value="{{ old('description') }}" class="form-control @error('description') is-invalid @enderror"></textarea>
+                </div>
+                @error('description')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+
+                <div class="mt-3">
                     <label class="mb-1" for="room_number">Rooms</label>
                     <input required type="number" max="1500" name="room_number" id="room_number" value="{{ old('room_number') }}"
                         class="form-control @error('room_number') is-invalid @enderror">

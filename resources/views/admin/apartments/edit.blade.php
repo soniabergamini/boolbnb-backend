@@ -20,11 +20,19 @@
                 @method("PUT")
 
                 <div class="mt-3">
-                    <label class="mb-1" for="name">Apartment's name</label>
+                    <label class="mb-1" for="name">Apartment name</label>
                     <input required type="text" name="name" id="name" value="{{ old('name') ?? $apartment->name }}"
                         class="form-control @error('name') is-invalid @enderror">
                 </div>
                 @error('name')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+
+                <div class="mt-3">
+                    <label class="mb-1" for="description">Apartment description</label>
+                    <textarea required name="description" id="description" cols="10" rows="5" value="{{ old('description') ?? $apartment->description }}" class="form-control @error('description') is-invalid @enderror"></textarea>
+                </div>
+                @error('description')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
 
