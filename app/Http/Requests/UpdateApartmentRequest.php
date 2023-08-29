@@ -25,6 +25,7 @@ class UpdateApartmentRequest extends FormRequest
     {
         return [
             "name" => 'required|min:4',
+            'description' => 'required|min:5|max:500',
             'room_number' => 'required|numeric|min:1|max:1500',
             "bed_number" => 'required|numeric|min:1|max:1500',
             'bathroom_number' => 'required|numeric|min:1|max:1500',

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ApartmentController extends Controller
 {
     public function index() {
-        $apartments = Apartment::with('services')->paginate(3);
+        $apartments = Apartment::with('services')->paginate(9);
         $response = [
             "success" => true,
             "results" => $apartments,

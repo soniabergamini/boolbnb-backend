@@ -30,11 +30,13 @@ class ApartmentSeeder extends Seeder
         $services = Service::all(["id"]);
         $sponsorships = Sponsorship::all(["id"]);
         $apartments = config('store.apartments');
+        $imageNum = 1;
 
         foreach ($apartments as $apartment) {
 
             $newApartment = new Apartment();
             $newApartment->name = $apartment['name'];
+            $newApartment->description = $apartment['description'];
             $newApartment->room_number = $apartment['room_number'];
             $newApartment->bed_number = $apartment['bed_number'];
             $newApartment->bathroom_number = $apartment['bathroom_number'];
@@ -42,7 +44,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->latitude = $apartment['latitude'];
             $newApartment->longitude = $apartment['longitude'];
             $newApartment->address = $apartment['address'];
-            $newApartment->image = 'placeholder/' . $apartment['image'];
+            $newApartment->image = 'placeholder/' .  'apartment' . $imageNum . '.jpeg';
             $newApartment->visible = $apartment['visible'];
             $newApartment->user_id = 1;
 
@@ -61,6 +63,7 @@ class ApartmentSeeder extends Seeder
                 'start_date' => Carbon::now(),
                 'end_date' => Carbon::now()->addDays(rand(1,3))
             ));
+            $imageNum++;
         }
     }
 }
