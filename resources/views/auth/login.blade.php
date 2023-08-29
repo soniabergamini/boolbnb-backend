@@ -49,7 +49,7 @@
 
 @section('content')
 
-<div id="containerBg">
+<div class="containerBg">
     <div class="castomCont d-flex justify-content-center align-items-center">
 
         <div class="container login-box containerCastom">
