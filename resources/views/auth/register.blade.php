@@ -3,8 +3,8 @@
 @section('content')
 
 
-<div class="containerBg py-4">
-    <div class="d-flex justify-content-center align-items-center">
+<div class="containerBg">
+    <div class="castomCont d-flex justify-content-center align-items-center">
 
         <div class="container login-box my-4 containerCastom">
             <div class="row">
