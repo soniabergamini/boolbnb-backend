@@ -11,12 +11,7 @@ body::-webkit-scrollbar {
 .containerBg{
     background-image: url("bgbmb.jpg");
     background-size: cover;
-    height: calc(100vh - 106px);
-}
-
-.containerBgRegister {
-  background-image: url("bgbmb.jpg");
-  background-size: cover;
+    height: 100vh;
 }
 
 .containerBgWelcome {
@@ -129,13 +124,13 @@ body::-webkit-scrollbar {
   }
 
   .login-box button:hover {
-    background: #03e9f4;
+    background: rgba(223, 133, 107, 1);
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+    box-shadow: 0 0 5px rgba(223, 133, 107, 1),
+                0 0 25px rgba(223, 133, 107, 1),
+                0 0 50px rgba(223, 133, 107, 1),
+                0 0 100px rgba(223, 133, 107, 1);
   }
   
   .login-box button span {
@@ -185,13 +180,13 @@ body::-webkit-scrollbar {
 //   ##### End Button #####
   
   .login-box a:hover {
-    background: #03e9f4;
+    background:rgba(223, 133, 107, 1);
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+    box-shadow: 0 0 5px rgba(223, 133, 107, 1),
+                0 0 25px rgba(223, 133, 107, 1),
+                0 0 50px rgba(223, 133, 107, 1),
+                0 0 100px rgba(223, 133, 107, 1);
   }
   
   .login-box a span {
