@@ -9,7 +9,9 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
+
 
 class ApartmentSeeder extends Seeder
 {
@@ -34,6 +36,9 @@ class ApartmentSeeder extends Seeder
 
         foreach ($apartments as $apartment) {
 
+            $apiURL = config('store.tomtomApi.apiUrl') . $apartment['address'] . '.json?key=' . env('TOMTOM_API_KEY');
+            $response = Http::withOptions(['verify' => false])->get($apiURL); 
+
             $newApartment = new Apartment();
             $newApartment->name = $apartment['name'];
             $newApartment->description = $apartment['description'];
@@ -41,17 +46,17 @@ class ApartmentSeeder extends Seeder
             $newApartment->bed_number = $apartment['bed_number'];
             $newApartment->bathroom_number = $apartment['bathroom_number'];
             $newApartment->square_meters = $apartment['square_meters'];
-            $newApartment->latitude = $apartment['latitude'];
-            $newApartment->longitude = $apartment['longitude'];
+            $newApartment->latitude = $response['results']['0']['position']['lat'];
+            $newApartment->longitude = $response['results']['0']['position']['lon'];
             $newApartment->address = $apartment['address'];
             $newApartment->image = 'placeholder/' .  'apartment' . $imageNum . '.jpeg';
             $newApartment->visible = $apartment['visible'];
             $newApartment->user_id = 1;
 
             // Add Random Services
-            $serviceNum = rand(8,18);
+            $serviceNum = rand(8, 18);
             $apartmentServices = [];
-            for ($c=0; $c < $serviceNum; $c++) {
+            for ($c = 0; $c < $serviceNum; $c++) {
                 $apartmentServices[] = $services->random()->id;
             }
             // Add Random Sponsorship
@@ -61,7 +66,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->services()->sync(array_unique($apartmentServices));
             $newApartment->sponsorships()->attach($apartmentsponsorship, array(
                 'start_date' => Carbon::now(),
-                'end_date' => Carbon::now()->addDays(rand(1,3))
+                'end_date' => Carbon::now()->addDays(rand(1, 3))
             ));
             $imageNum++;
         }

@@ -11,7 +11,8 @@
                 'square_meters' => 140,
                 'latitude' => 39.1911,
                 'longitude' => -106.8175,
-                'address' => '30 Alpine View Road, Aspen',
+                /* 'address' => '30 Alpine View Road, Aspen', */
+                'address' => 'Roma, piazza del popolo 10',
                 'visible' => true
             ],
             [
