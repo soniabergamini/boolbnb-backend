@@ -20,6 +20,11 @@
     background-color: transparent;
 }
 
+.navColorCastom{
+  // background: rgb(206,103,124);
+  // background: linear-gradient(90deg, rgba(206,103,124,1) 0%, rgba(255,206,112,1) 10%, rgba(255,255,255,1) 16%, rgba(255,255,255,1) 84%, rgba(255,206,112,1) 90%, rgba(206,103,124,1) 100%);
+}
+
 
 // css form
 
@@ -81,7 +86,7 @@
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color:  white; 
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -97,7 +102,7 @@
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: white;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -108,13 +113,13 @@
   }
 
   .login-box button:hover {
-    background: #03e9f4;
+    background: rgba(223,133,107,1);
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+    box-shadow: 0 0 5px rgba(223,133,107,1),
+                0 0 25px rgba(223,133,107,1),
+                0 0 50px rgba(223,133,107,1),
+                0 0 100px rgba(223,133,107,1);
   }
   
   .login-box button span {
@@ -164,13 +169,13 @@
 //   ##### End Button #####
   
   .login-box a:hover {
-    background: #03e9f4;
+    background: rgba(223,133,107,1);
     color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 100px #03e9f4;
+    box-shadow: 0 0 5px rgba(223,133,107,1),
+                0 0 25px rgba(223,133,107,1),
+                0 0 50px rgba(223,133,107,1),
+                0 0 100px rgba(223,133,107,1);
   }
   
   .login-box a span {
