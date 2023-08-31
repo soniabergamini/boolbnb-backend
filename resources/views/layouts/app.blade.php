@@ -23,7 +23,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navColorCastom">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm navColorCastom">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <img src="./BoolBnb_BW.png" alt="logo" class="img-fluid logo">

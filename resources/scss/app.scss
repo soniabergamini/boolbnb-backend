@@ -9,8 +9,9 @@ body::-webkit-scrollbar {
 }
 
 .containerBg{
-    background-image: url("bgbmb.jpg");
+    background-image: url("darkapartment.jpg");
     background-size: cover;
+    // background-color: #222;
     height: 100vh;
 }
 
@@ -32,8 +33,11 @@ body::-webkit-scrollbar {
 }
 
 .navColorCastom{
-  // background: rgb(206,103,124);
-  // background: linear-gradient(90deg, rgba(206,103,124,1) 0%, rgba(255,206,112,1) 10%, rgba(255,255,255,1) 16%, rgba(255,255,255,1) 84%, rgba(255,206,112,1) 90%, rgba(206,103,124,1) 100%);
+  // background: rgb(45,40,36);
+  // background: linear-gradient(207deg, rgba(45,40,36,1) 6%, rgba(17,12,6,1) 30%, rgba(44,39,35,1) 51%, rgba(17,12,6,1) 100%);
+
+  background: rgb(17,12,6);
+  background: linear-gradient(180deg, rgba(17,12,6,1) 47%, rgba(17,12,6,0.8939950980392157) 92%);
 }
 
 
@@ -41,6 +45,14 @@ body::-webkit-scrollbar {
 
 .castomCont {
   height: 100%;
+}
+
+.welcomeCastom{
+  padding: 40px;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
 }
   
   .login-box {
@@ -108,8 +120,7 @@ body::-webkit-scrollbar {
   }
 
 //   ##### Button #####
-
-  .login-box form button{
+  .login-box form button{ 
     position: relative;
     display: inline-block;
     padding: 10px 20px;

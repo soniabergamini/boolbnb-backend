@@ -91,21 +91,4 @@
         
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const userBoxes = document.querySelectorAll('.user-box input');
-
-        userBoxes.forEach(userBox => {
-            userBox.addEventListener('input', function() {
-                if (userBox.value.trim() !== '') {
-                    userBox.parentElement.classList.add('has-value');
-                } else {
-                    userBox.parentElement.classList.remove('has-value');
-                }
-            });
-        });
-    });
-</script>
-  
-
 @endsection
