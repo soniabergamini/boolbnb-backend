@@ -9,8 +9,7 @@
                 'bed_number' => 3,
                 'bathroom_number' => 1,
                 'square_meters' => 140,
-                /* 'address' => '30 Alpine View Road, Aspen', */
-                'address' => 'Roma, piazza del popolo 10',
+                'address' => '330 E Main St, Aspen, CO 81611, United States',
                 'visible' => true
             ],
             [
@@ -105,12 +104,12 @@
             ],
             [
                 'name' => 'Glassy Urban Retreat',
-                'description' => 'Live the dolce vita in Milan from this apartment with views of ancient monuments. Be enchanted by the history and timeless charm of the Fashion Capital',
+                'description' => 'Live la dolce vita in Rome from this apartment with views of ancient monuments. Be enchanted by the history and eternal charm of the Eternal City',
                 'room_number' => 4,
                 'bed_number' => 1,
                 'bathroom_number' => 1,
                 'square_meters' => 90,
-                'address' => 'Piazza Monte Titano, 10, Milan, Italy',
+                'address' => 'Piazza della Repubblica, 48, 00185 Rome, RM, Italy',
                 'visible' => true
             ]
         ],
