@@ -37,7 +37,7 @@ class ApartmentSeeder extends Seeder
         foreach ($apartments as $apartment) {
 
             $apiURL = config('store.tomtomApi.apiUrl') . $apartment['address'] . '.json?key=' . env('TOMTOM_API_KEY');
-            $response = Http::withOptions(['verify' => false])->get($apiURL); 
+            $response = Http::withOptions(['verify' => false])->get($apiURL);
 
             $newApartment = new Apartment();
             $newApartment->name = $apartment['name'];
@@ -54,7 +54,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->user_id = 1;
 
             // Add Random Services
-            $serviceNum = rand(8, 18);
+            $serviceNum = rand(8, 24);
             $apartmentServices = [];
             for ($c = 0; $c < $serviceNum; $c++) {
                 $apartmentServices[] = $services->random()->id;
