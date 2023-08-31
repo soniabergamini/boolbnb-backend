@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -22,7 +23,12 @@ class UserSeeder extends Seeder
         User::truncate();
         Schema::enableForeignKeyConstraints();
 
-        for($i=0; $i<5; $i++){
+        $newUser = new User();
+        $newUser->email = 'admin@test.com';
+        $newUser->password = Hash::make('admin');
+        $newUser->save();
+
+        for ($i = 0; $i < 5; $i++) {
             $newUser = new User();
             $newUser->name = ucfirst($faker->word());
             $newUser->surname = ucfirst($faker->word());
