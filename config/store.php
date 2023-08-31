@@ -9,8 +9,6 @@
                 'bed_number' => 3,
                 'bathroom_number' => 1,
                 'square_meters' => 140,
-                'latitude' => 39.1911,
-                'longitude' => -106.8175,
                 /* 'address' => '30 Alpine View Road, Aspen', */
                 'address' => 'Roma, piazza del popolo 10',
                 'visible' => true
@@ -22,9 +20,7 @@
                 'bed_number' => 3,
                 'bathroom_number' => 2,
                 'square_meters' => 100,
-                'latitude' => 48.8566,
-                'longitude' => 2.3522,
-                'address' => '23 Glassview Avenue, Paris',
+                'address' => '1 Rue Augereau, 75007 Paris, France',
                 'visible' => false
             ],
             [
@@ -34,9 +30,7 @@
                 'bed_number' => 5,
                 'bathroom_number' => 3,
                 'square_meters' => 300,
-                'latitude' => 39.0968,
-                'longitude' => -120.0324,
-                'address' => '28 Greenbreeze Lane, Lake Tahoe',
+                'address' => '6610 N Lake Blvd, Tahoe Vista, CA 96148, United States',
                 'visible' => true
             ],
             [
@@ -46,9 +40,7 @@
                 'bed_number' => 5,
                 'bathroom_number' => 4,
                 'square_meters' => 225,
-                'latitude' => 45.9237,
-                'longitude' => 6.8694,
-                'address' => '33 Alpine Meadow Road, Chamonix',
+                'address' => '60 Clos des Vernes, 74400 Chamonix-Mont-Blanc, France',
                 'visible' => true
             ],
             [
@@ -58,9 +50,7 @@
                 'bed_number' => 7,
                 'bathroom_number' => 3,
                 'square_meters' => 400,
-                'latitude' => 46.8182,
-                'longitude' => 8.2275,
-                'address' => '15 Evergreen Heights, Swiss Alps',
+                'address' => 'Via della Stazione 35, 6780 Airolo, Switzerland',
                 'visible' => true
             ],
             [
@@ -70,21 +60,17 @@
                 'bed_number' => 2,
                 'bathroom_number' => 1,
                 'square_meters' => 120,
-                'latitude' => 36.2704,
-                'longitude' => -121.8074,
-                'address' => '14 Rustic Trails Lane, Big Sur',
+                'address' => '46800 California Highway 1, Big Sur, California, United States',
                 'visible' => true
             ],
             [
                 'name' => 'Serenity Pines Chalet',
-                'description' => 'Indulge in the serenity of Tyrol from this hillside abode. Breathe in the crisp mountain air and bask in the luxurious comfort that seamlessly blends with the surrounding nature',
+                'description' => 'Breathe in the crisp mountain air and bask in the luxurious comfort that seamlessly blends with the surrounding nature',
                 'room_number' => 7,
                 'bed_number' => 5,
                 'bathroom_number' => 3,
                 'square_meters' => 130,
-                'latitude' => 47.2531,
-                'longitude' => 11.6017,
-                'address' => '25 Hillside Serenity Lane, Tyrol',
+                'address' => "Via Roma, 62, 32043 Cortina d'Ampezzo BL, Italy",
                 'visible' => true
             ],
             [
@@ -94,9 +80,7 @@
                 'bed_number' => 2,
                 'bathroom_number' => 1,
                 'square_meters' => 100,
-                'latitude' => 52.3676,
-                'longitude' => 4.9041,
-                'address' => '5 Cityscape Place, Amsterdam',
+                'address' => 'Oudezijds Voorburgwal 220, 1012 GJ Amsterdam, Netherlands',
                 'visible' => true
             ],
             [
@@ -106,9 +90,7 @@
                 'bed_number' => 5,
                 'bathroom_number' => 3,
                 'square_meters' => 400,
-                'latitude' => 41.3851,
-                'longitude' => 2.1734,
-                'address' => '8 Harborview Lane, Barcelona',
+                'address' => 'Pg. de Gràcia, 73, Barcelona, Spain',
                 'visible' => true
             ],
             [
@@ -118,9 +100,7 @@
                 'bed_number' => 1,
                 'bathroom_number' => 1,
                 'square_meters' => 100,
-                'latitude' => 40.7128,
-                'longitude' => -74.0060,
-                'address' => '7 Skyline Terrace, New York City',
+                'address' => '768 5th Ave, New York, United States',
                 'visible' => true
             ],
             [
@@ -130,9 +110,7 @@
                 'bed_number' => 1,
                 'bathroom_number' => 1,
                 'square_meters' => 90,
-                'latitude' => 45.4642,
-                'longitude' => 9.1900,
-                'address' => '34 Urban Heights Road, Milan',
+                'address' => 'Piazza Monte Titano, 10, Milan, Italy',
                 'visible' => true
             ]
         ],

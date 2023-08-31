@@ -8,12 +8,20 @@ use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
 {
+    public function all() {
+        $apartments = Apartment::with('services')->get();
+        $response = [
+            "success" => true,
+            "results" => $apartments
+        ];
+        return response()->json($response);
+    }
+
     public function index() {
         $apartments = Apartment::with('services')->paginate(9);
         $response = [
             "success" => true,
-            "results" => $apartments,
-            "message" => "Cannot find data"
+            "results" => $apartments
         ];
         return response()->json($response);
     }
@@ -22,8 +30,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::with('services')->find($id);
         $response = [
             "success" => true,
-            "results" => $apartments,
-            "message" => "Cannot find data"
+            "results" => $apartments
         ];
         return response()->json($response);
     }
