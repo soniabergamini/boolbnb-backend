@@ -111,6 +111,56 @@
                 'square_meters' => 90,
                 'address' => 'Piazza della Repubblica, 48, 00185 Rome, RM, Italy',
                 'visible' => true
+            ],
+            [
+                'name' => 'Lakeside Haven Retreat in Aspen',
+                'description' => "Experience tranquil luxury at our Lakeside Haven Retreat in Aspen. Embrace the serene beauty of the lake and mountains while enjoying the convenience of downtown Aspen's vibrant scene. Your perfect getaway awaits",
+                'room_number' => 10,
+                'bed_number' => 6,
+                'bathroom_number' => 4,
+                'square_meters' => 300,
+                'address' => '0444 Glen Eagle Dr, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Alpine Escape Haven',
+                'description' => "Discover the enchanting allure of the mountains at our Alpine Escape Haven in Aspen. Nestled amidst nature's beauty, this retreat offers a harmonious blend of rustic charm and modern comfort. Embrace the mountain breeze, explore nearby trails, and create lasting memories in the heart of nature",
+                'room_number' => 5,
+                'bed_number' => 4,
+                'bathroom_number' => 2,
+                'square_meters' => 180,
+                'address' => '300 AVSC Dr, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Amsterdam Riverside Resort',
+                'description' => "Experience the allure of Amsterdam like never before at the Riverside Resort. Nestled along the scenic riverbanks, this exclusive retreat offers a harmonious blend of city sophistication and tranquil nature. Wake up to stunning canal views, explore the vibrant streets, and unwind in the resort's luxurious amenities. Your Amsterdam escape begins here, where urban excitement meets serene relaxation",
+                'room_number' => 1,
+                'bed_number' => 1,
+                'bathroom_number' => 1,
+                'square_meters' => 70,
+                'address' => 'Plantage Kerklaan 38-40, 1018 CZ Amsterdam, Netherlands',
+                'visible' => true
+            ],
+            [
+                'name' => 'Eternal City Serenity Oasis',
+                'description' => "Discover the essence of tranquility at the Eternal City Serenity Oasis Resort. Nestled amidst the historic beauty of Rome, this enchanting retreat offers a sanctuary of calm and relaxation. Immerse yourself in the elegance of our resort, unwind by the poolside, and savor the captivating views of the city's timeless landmarks. Your Roman getaway awaits, where serenity and luxury seamlessly blend for an unforgettable experience",
+                'room_number' => 4,
+                'bed_number' => 3,
+                'bathroom_number' => 2,
+                'square_meters' => 120,
+                'address' => 'Viale Serapide, 00184 Rome, RM, Italy',
+                'visible' => true
+            ],
+            [
+                'name' => 'Prestige Oasis Villa',
+                'description' => 'Indulge in the ultimate luxury at our Prestige Oasis Villa with Pool in Aspen. Experience a lavish retreat where sophistication meets relaxation. Bask in the sun by your private pool, surrounded by the breathtaking Aspen landscape. Your exquisite escape awaits, offering a blend of opulence, comfort, and natural beauty.',
+                'room_number' => 12,
+                'bed_number' => 8,
+                'bathroom_number' => 5,
+                'square_meters' => 330,
+                'address' => '333 E Durant Ave, Aspen, CO 81611, United States',
+                'visible' => true
             ]
         ],
         'services' => [
