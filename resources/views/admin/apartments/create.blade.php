@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid mt-4 d-flex flex-wrap justify-content-between">
         <div class="row w-100">
-            <h1 class="mb-5">Insert new apartment</h1>
+            <h1 class="mb-5 text-light">Insert new apartment</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
