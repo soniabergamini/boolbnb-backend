@@ -10,7 +10,8 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'icon'
     ];
 
     // Many to Many Relation Service -> Apartment

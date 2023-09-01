@@ -23,9 +23,10 @@ class ServiceSeeder extends Seeder
 
         $services = config('store.services');
 
-        foreach ($services as $item) {
+        foreach ($services as $key => $item) {
             $newService = new Service();
-            $newService->name = $item;
+            $newService->name = $key;
+            $newService->icon = $item;
             $newService->save();
         }
     }
