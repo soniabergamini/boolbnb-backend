@@ -4,7 +4,7 @@
         'apartments' => [
             [
                 'name' => 'Panoramic Dome',
-                'description' => 'Imagine waking up to the breathtaking sight of mountain peaks, surrounded by the winter enchantment of Aspen. This cozy chalet offers you a luxurious retreat in the heart of the Alps',
+                'description' => 'Imagine waking up to the breathtaking sight of mountain peaks, surrounded by the winter enchantment of Aspen. This cozy chalet offers you a luxurious retreat in the heart of the Alps.',
                 'room_number' => 4,
                 'bed_number' => 3,
                 'bathroom_number' => 1,
@@ -14,7 +14,7 @@
             ],
             [
                 'name' => 'Beautiful Apartment',
-                'description' => 'Immerse yourself in the Parisian ambiance from this chic apartment. With a panoramic view of the City of Lights, become a part of the elegance that Paris offers',
+                'description' => 'Immerse yourself in the Parisian ambiance from this chic apartment. With a panoramic view of the City of Lights, become a part of the elegance that Paris offers.',
                 'room_number' => 5,
                 'bed_number' => 3,
                 'bathroom_number' => 2,
@@ -24,7 +24,7 @@
             ],
             [
                 'name' => 'Nature House',
-                'description' => 'Embrace the serene elegance of Lake Tahoe at this residence overlooking its pristine waters. From sunrise to sunset, find tranquility and inspiration in this lakeside sanctuary',
+                'description' => 'Embrace the serene elegance of Lake Tahoe at this residence overlooking its pristine waters. From sunrise to sunset, find tranquility and inspiration in this lakeside sanctuary.',
                 'room_number' => 8,
                 'bed_number' => 5,
                 'bathroom_number' => 3,
@@ -34,7 +34,7 @@
             ],
             [
                 'name' => 'Beautiful Wooden House',
-                'description' => 'Embark on an alpine adventure from this Chamonix haven. Surrounded by lush meadows and towering peaks, find comfort and elegance in this gateway to mountain exploration',
+                'description' => 'Embark on an alpine adventure from this Chamonix haven. Surrounded by lush meadows and towering peaks, find comfort and elegance in this gateway to mountain exploration.',
                 'room_number' => 10,
                 'bed_number' => 5,
                 'bathroom_number' => 4,
@@ -44,7 +44,7 @@
             ],
             [
                 'name' => 'Amazing Nature Villa',
-                'description' => 'Perched high in the Swiss Alps, this residence offers unparalleled views and an evergreen embrace. Discover a world where relaxation meets adventure in the lap of alpine luxury',
+                'description' => 'Perched high in the Swiss Alps, this residence offers unparalleled views and an evergreen embrace. Discover a world where relaxation meets adventure in the lap of alpine luxury.',
                 'room_number' => 9,
                 'bed_number' => 7,
                 'bathroom_number' => 3,
@@ -54,7 +54,7 @@
             ],
             [
                 'name' => 'Mountain Cottage',
-                'description' => 'Lose yourself in the rugged beauty of Big Sur from this rustic retreat. Experience the allure of coastal living with a touch of luxury in this coastal woodland escape',
+                'description' => 'Lose yourself in the rugged beauty of Big Sur from this rustic retreat. Experience the allure of coastal living with a touch of luxury in this coastal woodland escape.',
                 'room_number' => 5,
                 'bed_number' => 2,
                 'bathroom_number' => 1,
@@ -64,7 +64,7 @@
             ],
             [
                 'name' => 'Serenity Pines Chalet',
-                'description' => 'Breathe in the crisp mountain air and bask in the luxurious comfort that seamlessly blends with the surrounding nature',
+                'description' => 'Breathe in the crisp mountain air and bask in the luxurious comfort that seamlessly blends with the surrounding nature.',
                 'room_number' => 7,
                 'bed_number' => 5,
                 'bathroom_number' => 3,
@@ -74,7 +74,7 @@
             ],
             [
                 'name' => 'Evergreen Haven Lodge',
-                'description' => 'Admire the canals of Amsterdam from this modern-designed apartment. Dive into Dutch culture and the unique atmosphere of the city of canals',
+                'description' => 'Admire the canals of Amsterdam from this modern-designed apartment. Dive into Dutch culture and the unique atmosphere of the city of canals.',
                 'room_number' => 4,
                 'bed_number' => 2,
                 'bathroom_number' => 1,
@@ -84,7 +84,7 @@
             ],
             [
                 'name' => 'Ocean Vista Oasis',
-                'description' => 'Experience the magic of Catalonia from this sea-view apartment. Uncover the architectural and cultural wonders of Barcelona',
+                'description' => 'Experience the magic of Catalonia from this sea-view apartment. Uncover the architectural and cultural wonders of Barcelona.',
                 'room_number' => 10,
                 'bed_number' => 5,
                 'bathroom_number' => 3,
@@ -94,7 +94,7 @@
             ],
             [
                 'name' => 'Metropolitan Loft Haven',
-                'description' => 'Live in style with breathtaking Manhattan skyline. This apartment offers you luxury with a view of NYC from skyscrapers',
+                'description' => 'Live in style with breathtaking Manhattan skyline. This apartment offers you luxury with a view of NYC from skyscrapers.',
                 'room_number' => 4,
                 'bed_number' => 1,
                 'bathroom_number' => 1,
@@ -104,7 +104,7 @@
             ],
             [
                 'name' => 'Glassy Urban Retreat',
-                'description' => 'Live la dolce vita in Rome from this apartment with views of ancient monuments. Be enchanted by the history and eternal charm of the Eternal City',
+                'description' => 'Live la dolce vita in Rome from this apartment with views of ancient monuments. Be enchanted by the history and eternal charm of the Eternal City.',
                 'room_number' => 4,
                 'bed_number' => 1,
                 'bathroom_number' => 1,
@@ -114,7 +114,7 @@
             ],
             [
                 'name' => 'Lakeside Haven Retreat in Aspen',
-                'description' => "Experience tranquil luxury at our Lakeside Haven Retreat in Aspen. Embrace the serene beauty of the lake and mountains while enjoying the convenience of downtown Aspen's vibrant scene. Your perfect getaway awaits",
+                'description' => "Experience tranquil luxury at our Lakeside Haven Retreat in Aspen. Embrace the serene beauty of the lake and mountains while enjoying the convenience of downtown Aspen's vibrant scene. Your perfect getaway awaits.",
                 'room_number' => 10,
                 'bed_number' => 6,
                 'bathroom_number' => 4,
@@ -124,7 +124,7 @@
             ],
             [
                 'name' => 'Alpine Escape Haven',
-                'description' => "Discover the enchanting allure of the mountains at our Alpine Escape Haven in Aspen. Nestled amidst nature's beauty, this retreat offers a harmonious blend of rustic charm and modern comfort. Embrace the mountain breeze, explore nearby trails, and create lasting memories in the heart of nature",
+                'description' => "Discover the enchanting allure of the mountains at our Alpine Escape Haven in Aspen. Nestled amidst nature's beauty, this retreat offers a harmonious blend of rustic charm and modern comfort. Embrace the mountain breeze, explore nearby trails, and create lasting memories in the heart of nature.",
                 'room_number' => 5,
                 'bed_number' => 4,
                 'bathroom_number' => 2,
@@ -134,7 +134,7 @@
             ],
             [
                 'name' => 'Amsterdam Riverside Resort',
-                'description' => "Experience the allure of Amsterdam like never before at the Riverside Resort. Nestled along the scenic riverbanks, this exclusive retreat offers a harmonious blend of city sophistication and tranquil nature. Wake up to stunning canal views, explore the vibrant streets, and unwind in the resort's luxurious amenities. Your Amsterdam escape begins here, where urban excitement meets serene relaxation",
+                'description' => "Experience the allure of Amsterdam like never before at the Riverside Resort. Nestled along the scenic riverbanks, this exclusive retreat offers a harmonious blend of city sophistication and tranquil nature. Wake up to stunning canal views, explore the vibrant streets, and unwind in the resort's luxurious amenities. Your Amsterdam escape begins here, where urban excitement meets serene relaxation.",
                 'room_number' => 1,
                 'bed_number' => 1,
                 'bathroom_number' => 1,
@@ -144,7 +144,7 @@
             ],
             [
                 'name' => 'Eternal City Serenity Oasis',
-                'description' => "Discover the essence of tranquility at the Eternal City Serenity Oasis Resort. Nestled amidst the historic beauty of Rome, this enchanting retreat offers a sanctuary of calm and relaxation. Immerse yourself in the elegance of our resort, unwind by the poolside, and savor the captivating views of the city's timeless landmarks. Your Roman getaway awaits, where serenity and luxury seamlessly blend for an unforgettable experience",
+                'description' => "Discover the essence of tranquility at the Eternal City Serenity Oasis Resort. Nestled amidst the historic beauty of Rome, this enchanting retreat offers a sanctuary of calm and relaxation. Immerse yourself in the elegance of our resort, unwind by the poolside, and savor the captivating views of the city's timeless landmarks. Your Roman getaway awaits, where serenity and luxury seamlessly blend for an unforgettable experience.",
                 'room_number' => 4,
                 'bed_number' => 3,
                 'bathroom_number' => 2,
