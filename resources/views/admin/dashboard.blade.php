@@ -1,19 +1,21 @@
 
 @extends('layouts.admin')
 @section('content')
-<div class="containerDash  ">
+
 	@extends('layouts.header')
+  
+  <div class="containerDash">
 	<div class="d-flex">
-		<div class="col-2 "><img class="imgAdmin" src="Admin.jpg" alt=""></div>
+		<div class="col-3 "><img class="imgAdmin" src="Admin.jpg" alt=""></div>
 		<div class="col-6 d-flex flex-md-column justify-content-center">
 			<h2>Admin</h2>
 			<p><strong> @test.com</strong> 3 messages to read</p>
 			<a>Settings</a>
 		</div>
-		<div class="col-2 d-flex flex-md-column justify-content-center"> <button class="btn btn-outline-warning">Manage your subscriptions</button></div>
+		<div class="col-2 d-flex flex-md-column justify-content-center"> <button class="btn btn-outline-warning text-white btn-warning">Manage your subscriptions</button></div>
 	</div>
 	<div class="d-flex flex-md-column">
-		<div class="col-4 ml_3">
+		{{-- <div class="col-4 ml_3">
 			<h2>I tuoi Appartameti</h2>
 			<div class="carouselDash">
 					<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -48,10 +50,10 @@
 				</div>
 			</div>
 			
-		</div>
-		<div class="Prace">
+		</div> --}}
+		<div class="Price">
 
-			<h1 class="main__heading">Pricing</h1>
+			<h1 class="main__heading text-black">Pricing</h1>
 
 			<div class="main__cards cards">
 		
