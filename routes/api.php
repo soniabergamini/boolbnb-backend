@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TomTomProxyController;
 use App\Http\Controllers\Api\ApartmentController;
 use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\ServiceController;
@@ -35,3 +36,6 @@ Route::get('/services', [ServiceController::class, 'all']);
 
 // Save new message from frontend user
 Route::post('/contacts', [MessageController::class, 'store']);
+
+// Allow calls to tomtom from frontend
+Route::get('/tomtom-geo/{location}', [TomTomProxyController::class, 'geo']);
