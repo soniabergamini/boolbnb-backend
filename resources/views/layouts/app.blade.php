@@ -23,9 +23,9 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm navColorCastom">
+        <nav id="headerNav" class="navbar navbar-expand-md navbar-dark shadow-sm navColorCastom">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="http://localhost:5173/">
+                <a class="navbar-brand d-flex align-items-center" href="@env('APP_FRONTEND_URL')@endenv">
                     <img src="./BoolBnb_BW.png" alt="logo" class="img-fluid logo">
                     {{-- config('app.name', 'Laravel') --}}
                 </a>

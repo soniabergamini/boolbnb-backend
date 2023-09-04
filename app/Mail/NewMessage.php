@@ -48,7 +48,7 @@ class NewMessage extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.newmessage',
+            view: 'messages.emails.newmessage',
         );
     }
 

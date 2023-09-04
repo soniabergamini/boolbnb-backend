@@ -11,7 +11,7 @@
                     <h1 class="display-5 fw-bold">
                         Welcome to BoolBnb
                     </h1>
-                    <p class="col-md-8 fs-4">"Extraordinary homes, unique travels."</p>
+                    <p class="col-md-8 fs-4">Extraordinary homes, unique travels</p>
                 </div>
             </div>
         </div>
