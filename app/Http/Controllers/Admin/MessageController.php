@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +17,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Message::whereIn('apartment_id', Auth::user()->apartments->pluck('id'))->with('apartment')->orderBy('created_at', 'desc')->get();
+
+        return view('admin.messages.index', compact('messages'));
+
     }
 
     /**

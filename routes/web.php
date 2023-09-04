@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 
 use App\Http\Controllers\Admin\ApartmentController;
+use App\Http\Controllers\Admin\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,11 @@ Route::middleware(['auth'])
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-        // Admin Post CRUD
+        // Admin Apartment Post CRUD
         Route::resource('apartments', ApartmentController::class);
+
+        // Admin Message Post CRUD
+        Route::resource('messages', MessageController::class);
     });
 
 require __DIR__ . '/auth.php';

@@ -55,7 +55,7 @@
 							</li>
 
                             <li class="nav-item rounded">
-								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.apartments.create')}}">
+								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.messages.index')}}">
 									<i class="fa-solid fa-envelope fa-lg fa-fw me-3"></i> Messages
 								</a>
 							</li>
