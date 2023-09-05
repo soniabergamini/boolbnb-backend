@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
@@ -15,9 +16,15 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $messages = Message::whereIn('apartment_id', Auth::user()->apartments->pluck('id'))->with('apartment')->orderBy('created_at', 'desc')->get();
+        $messages = [];
+
+        if($request->has('apartment_id') && Auth::user()->apartments->find($request->apartment_id)) {
+            $messages = Message::whereIn('apartment_id', $request->apartment_id)->with('apartment')->orderBy('created_at', 'desc')->get();
+        } else {
+            $messages = Message::whereIn('apartment_id', Auth::user()->apartments->pluck('id'))->with('apartment')->orderBy('created_at', 'desc')->get();
+        }
 
         return view('admin.messages.index', compact('messages'));
 

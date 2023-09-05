@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-    <div id="messagesSec" class="my-3 mx-1 text-white">
+    <div id="messagesSec" class="my-3 mx-1">
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -13,9 +13,14 @@
             </div>
         @endif
 
-        <h1><i class="fa-solid fa-envelope fa-lg fa-fw me-1"></i> Messages</h1>
+        <h1 class="colPrimaryOrange"><i class="fa-solid fa-envelope fa-lg fa-fw me-1"></i> Messages</h1>
 
-        <section class="p-2 mx-2">
+        <div class="w-100 d-flex justify-content-end me-4">
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">Filter</button>
+        </div>
+
+        <section class="p-2 mx-2 text-white">
             <div class="d-flex border border-secondary p-2">
                 <p class="w-15 m-0"><strong>Apartment Image</strong></p>
                 <p class="w-25 m-0"><strong>User Email</strong></p>
@@ -24,8 +29,10 @@
             @forelse ($messages as $message)
                 <div class="d-flex border border-secondary align-items-center">
                     <div class="w-15 p-2 position-relative message">
-                        <img src="{{ asset('/storage') . '/' . $message->apartment->image }}" :alt="$message->apartment->name" class="img-fluid rounded">
-                        <p class="position-absolute top-50 start-50 translate-middle text-center">{{ $message->apartment->name }}</p>
+                        <img src="{{ asset('/storage') . '/' . $message->apartment->image }}"
+                            :alt="$message - > apartment - > name" class="img-fluid rounded">
+                        <p class="position-absolute top-50 start-50 translate-middle text-center">
+                            {{ $message->apartment->name }}</p>
                     </div>
                     <p class="w-25 m-0">{{ $message->user_mail }}</p>
                     <p class="w-60 m-0">{{ $message->text }}</p>
@@ -34,6 +41,25 @@
                 <p>There are no new messages</p>
             @endforelse
         </section>
+
+        {{-- OffCanvas --}}
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-center" id="offcanvasRightLabel">FILTER APARTMENTS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <form action="" class="row g-3" action="{{ route('admin.messages.index') }}" >
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
 
