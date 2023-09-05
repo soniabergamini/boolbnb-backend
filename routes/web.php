@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController; //<---- Import del controlle
 
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::middleware(['auth'])
 
         // Admin Message Post CRUD
         Route::resource('messages', MessageController::class);
+
+        Route::any('/payment/token', [PaymentController::class, 'token'])->name('payment.token');
+        Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
     });
 
 require __DIR__ . '/auth.php';
