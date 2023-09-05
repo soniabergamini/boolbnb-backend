@@ -59,7 +59,7 @@
                     <div class="col-12">
                         <label for="inputState" class="form-label">Choose Apartment</label>
                         <select id="inputState" class="form-select" name="apartment_id">
-                            <option>Choose...</option>
+                            <option>All</option>
                             @foreach ($apartments as $apartment)
                                 <option value="{{ $apartment->id }}"> {{ $apartment->name }}</option>
                             @endforeach

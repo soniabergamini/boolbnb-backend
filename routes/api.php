@@ -38,4 +38,4 @@ Route::get('/services', [ServiceController::class, 'all']);
 Route::post('/contacts', [MessageController::class, 'store']);
 
 // Allow calls to tomtom from frontend
-Route::get('/tomtom-geo/{location}', [TomTomProxyController::class, 'geo']);
+// Route::get('/tomtom-geo/{location}', [TomTomProxyController::class, 'geo']);
