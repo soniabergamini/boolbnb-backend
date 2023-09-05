@@ -19,14 +19,15 @@ class MessageController extends Controller
     public function index(Request $request)
     {
         $messages = [];
+        $apartments = Auth::user()->apartments;
 
         if($request->has('apartment_id') && Auth::user()->apartments->find($request->apartment_id)) {
-            $messages = Message::whereIn('apartment_id', $request->apartment_id)->with('apartment')->orderBy('created_at', 'desc')->get();
+            $messages = Message::whereIn('apartment_id', [$request->apartment_id])->with('apartment')->orderBy('created_at', 'desc')->get();
         } else {
             $messages = Message::whereIn('apartment_id', Auth::user()->apartments->pluck('id'))->with('apartment')->orderBy('created_at', 'desc')->get();
         }
 
-        return view('admin.messages.index', compact('messages'));
+        return view('admin.messages.index', compact('messages', 'apartments'));
 
     }
 
