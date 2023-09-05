@@ -23,9 +23,9 @@
 
  <body>
  	<div id="app">
-
- 		<div id="adminContainer" class="container-fluid vh-100">
- 			<div class="row h-100">
+        @include('layouts.header')
+ 		<div id="adminContainer" class="container-fluid">
+ 			<div class="row">
  				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
  					<div class="position-sticky pt-3">
  						<ul id="adminLeftMenu" class="nav flex-column">

@@ -2,10 +2,11 @@
 @extends('layouts.admin')
 @section('content')
 
-	@extends('layouts.header')
-  
   <div class="containerDash">
-	<div class="d-flex">
+	<div class="row mt-2">
+        <h1 class="col-12 text-center my-3 colPrimaryOrange">Welcome {{ Auth::user()->name ?? 'Host' }}!</h1>
+        <p class="col-12 mb-4 px-5 text-center">Welcome to your personal space. Here, you can view your apartments, add new ones and highlight them for better visibility and more guests. You can also read messages received for each apartment and enjoy additional features.</p>
+        <hr class="col-12">
 		<div class="col-3 "><img class="imgAdmin" src="Admin.jpg" alt=""></div>
 		<div class="col-6 d-flex flex-md-column justify-content-center">
 			<h2>Admin</h2>
@@ -49,14 +50,14 @@
 					</button>
 				</div>
 			</div>
-			
+
 		</div> --}}
 		<div class="Price">
 
 			<h1 class="main__heading text-black">Pricing</h1>
 
 			<div class="main__cards cards">
-		
+
 			  <div class="cards__inner">
 				<div class="cards__card card">
 				  <h2 class="card__heading">Basic</h2>
@@ -67,7 +68,7 @@
 				  </ul>
 				  <a href="#basic" class="card__cta cta">Get Started</a>
 				</div>
-		
+
 				<div class="cards__card card">
 				  <h2 class="card__heading">Pro</h2>
 				  <p class="card__price">$7.99</p>
@@ -78,7 +79,7 @@
 				  </ul>
 				  <a href="#pro" class="card__cta cta">Upgrade to Pro</a>
 				</div>
-		
+
 				<div class="cards__card card">
 				  <h2 class="card__heading">Ultimate</h2>
 				  <p class="card__price">$15.99</p>
@@ -90,21 +91,17 @@
 				  </ul>
 				  <a href="#ultimate" class="card__cta cta">Go Ultimate</a>
 				</div>
-				
+
 			  </div>
 
 			  <div class="overlay cards__inner"></div>
 		</div>
 	</div>
-	
-	
-	
+
 </div>
 
 <style>
 	@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&display=swap");
-
-
 
 body {
   /* display: grid; */
@@ -305,7 +302,7 @@ const initOverlayCard = (cardEl) => {
 
 cards.forEach(initOverlayCard);
 document.body.addEventListener("pointermove", applyOverlayMask);
-	
+
 </script>
  @endsection
 

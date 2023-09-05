@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $newUser = new User();
+        $newUser->name = 'Admin';
         $newUser->email = 'admin@test.com';
         $newUser->password = Hash::make('admin');
         $newUser->save();
