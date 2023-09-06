@@ -53,7 +53,7 @@ class ApartmentController extends Controller
 
         // $response = Http::get($apiURL);
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disable certificate verification temporarily
-        if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
+        if (!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
             return redirect()->back()->withErrors('Your apartment address is incorrect.');
         }
 
@@ -83,7 +83,7 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         // Policy Filter
-        if($apartment->user_id != Auth::id()) {
+        if ($apartment->user_id != Auth::id()) {
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
 
@@ -101,7 +101,7 @@ class ApartmentController extends Controller
     public function edit(Apartment $apartment)
     {
         // Policy Filter
-        if($apartment->user_id != Auth::id()) {
+        if ($apartment->user_id != Auth::id()) {
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
 
@@ -126,7 +126,7 @@ class ApartmentController extends Controller
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disabilita la verifica del certificato temporaneamente
 
         // Policy Filter
-        if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
+        if (!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
             return redirect()->back()->withErrors('Your apartment address is incorrect.');
         }
 
@@ -149,7 +149,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
         // Policy Filter
-        if($apartment->user_id != Auth::id()) {
+        if ($apartment->user_id != Auth::id()) {
             return redirect()->route('admin.apartments.index');
         }
 

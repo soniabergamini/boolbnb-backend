@@ -37,5 +37,8 @@ Route::get('/services', [ServiceController::class, 'all']);
 // Save new message from frontend user
 Route::post('/contacts', [MessageController::class, 'store']);
 
+// Get sponsored apartments
+Route::get('/sponsored', [ApartmentController::class, 'sponsored']);
+
 // Allow calls to tomtom from frontend
 // Route::get('/tomtom-geo/{location}', [TomTomProxyController::class, 'geo']);
