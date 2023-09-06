@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Apartment;
+use App\Models\Sponsorship;
 use Braintree\Transaction;
 use Braintree\Gateway;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
 class PaymentController extends Controller
 {
-    public function token(Request $request) {
+    public function token(Apartment $apartment, Sponsorship $sponsorship)
+    {
+        // Policy Filter
+        if($apartment->user_id != Auth::id()) {
+            return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
+        }
 
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
@@ -19,31 +27,23 @@ class PaymentController extends Controller
             'privateKey' => env("BRAINTREE_PRIVATE_KEY")
         ]);
 
-        if($request->input('nonce') != null){
-            dd($request);
-            $nonceFromTheClient = $request->input('nonce');
+        $clientToken = $gateway->clientToken()->generate();
 
-            $gateway->transaction()->sale([
-                'amount' => '10.00',
-                'paymentMethodNonce' => $nonceFromTheClient,
-                'options' => [
-                    'submitForSettlement' => True
-                ]
-            ]);
-            return view ('dashboard');
-        } else {
-            $clientToken = $gateway->clientToken()->generate();
-            return view ('admin.payments.payment',['token' => $clientToken]);
-        }
-
-        // $clientToken = $gateway->clientToken()->generate();
-        // return view('admin.payments.payment', ['token' => $clientToken]);
+        return view('admin.payments.payment', [
+            'token' => $clientToken,
+            'sponsorship' => $sponsorship,
+            'apartment' => $apartment
+        ]);
     }
 
     public function process(Request $request)
     {
         $nonce = $request->input('payment_method_nonce');
+        dump('payment method: ', $nonce);
         $amount = $request->input('amount');
+        dump('amount: ', $amount);
+        $apartment = $request->input('apartment_id');
+        dump('apartment id: ', $apartment);
 
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
@@ -70,7 +70,5 @@ class PaymentController extends Controller
             Log::error('Errore durante il pagamento: ' . $e->getMessage());
             return 'Errore durante il pagamento: ' . $e->getMessage();
         }
-
     }
 }
-

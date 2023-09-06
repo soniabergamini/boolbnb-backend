@@ -38,7 +38,7 @@ Route::middleware(['auth'])
         // Admin Message Post CRUD
         Route::resource('messages', MessageController::class);
 
-        Route::any('/payment/token', [PaymentController::class, 'token'])->name('payment.token');
+        Route::any('/payment/token/{apartment}/{sponsorship}', [PaymentController::class, 'token'])->name('payment.token');
         Route::post('/payment/process', [PaymentController::class, 'process'])->name('payment.process');
     });
 

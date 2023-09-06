@@ -5,8 +5,10 @@
         <div id="dropin-container"></div>
         <form id="payment-form" action="{{ route('admin.payment.process') }}" method="POST">
             @csrf
-            <label for="amount">Importo del pagamento:</label>
-            <input type="text" id="amount" name="amount" required>
+            {{-- <label for="amount">Importo del pagamento:</label> --}}
+            {{-- <input type="text" id="amount" name="amount" required> --}}
+            <input type="hidden" id="amount" name="amount" value="{{ $sponsorship->price }}">
+            <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $apartment->id }}">
             <!-- Altri campi del form, se necessario -->
             <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" value="">
             <button id="submit-button" type="button">Conferma Pagamento</button>
@@ -20,8 +22,7 @@
             var button = document.querySelector('#submit-button');
 
             braintree.dropin.create({
-                // Insert your tokenization key here
-                authorization: 'sandbox_w362cfkp_htxcdmp9ttv73hz8',
+                authorization: '{{ $token }}',
                 container: '#dropin-container'
             }, function(createErr, instance) {
                 button.addEventListener('click', function() {
