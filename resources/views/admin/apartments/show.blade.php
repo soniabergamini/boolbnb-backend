@@ -18,7 +18,7 @@
                 <div class="">
                     <a href="{{ route('admin.apartments.edit', $apartment) }}" class="badge text-bg-success editShow"><i class="fa-solid fa-pen-to-square"></i></a>
                 </div>
-                
+
                 <div >
                     <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post" >
                         @csrf
@@ -31,11 +31,11 @@
                             <div>
                                 <a type="submit" class="badge text-bg-danger"> <i class="fa-solid fa-trash-can"></i></a>
                             </div>
-                    
+
                         </div>
                     </form>
                 </div>
-               
+
             </div>
             <div class="contImg ">
                 <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="rounded-2" alt="apartment image ">
@@ -57,16 +57,17 @@
 
             </div>
         </div>
-  
-          
-      
+
+
+
 
         <div class="SponsorShow col-6">
             <div>
                 <h1 class="colPrimaryOrange  ">Do you want to sponsor your apartment?</h1>
-               
+
                 <div class="carFlex">
                     <button class="pay" >Pay</button>
+                    {{-- <a href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-primary">Visit</a> --}}
                     <div class="infoCArd ">
                         <div >
                             <h2 class="card__heading">Basic</h2>
@@ -113,7 +114,7 @@
     @endsection
 
 <style>
-    
+
 
 /***************************/
 /******** APARTMENT ********/
@@ -213,7 +214,7 @@ ul .icons {
   font-size: 1.75em;
   font-weight: 700;
 }
-    
+
 
 
 

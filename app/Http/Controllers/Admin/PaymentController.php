@@ -20,6 +20,7 @@ class PaymentController extends Controller
         ]);
 
         if($request->input('nonce') != null){
+            dd($request);
             $nonceFromTheClient = $request->input('nonce');
 
             $gateway->transaction()->sale([
@@ -41,9 +42,8 @@ class PaymentController extends Controller
 
     public function process(Request $request)
     {
-
-        dd($request);
-        $nonce = $request->payment_method_nonce;
+        $nonce = $request->input('payment_method_nonce');
+        $amount = $request->input('amount');
 
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
@@ -54,15 +54,16 @@ class PaymentController extends Controller
 
         try {
             $result = $gateway->transaction()->sale([
-                'amount' => '10.00', // L'importo del pagamento
+                'amount' => $amount,
                 'paymentMethodNonce' => $nonce,
             ]);
 
             if ($result->success) {
-                // Pagamento avvenuto con successo
+                dd('successsss: ', $result);
                 return 'Pagamento avvenuto con successo!';
             } else {
                 // Gestisci l'errore del pagamento
+                dd('fail: ', $result);
                 return 'Errore durante il pagamento: ' . $result->message;
             }
         } catch (\Exception $e) {
