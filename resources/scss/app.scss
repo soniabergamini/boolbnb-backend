@@ -388,21 +388,21 @@ header {
 }
 
 #messagesSec {
-    &>h1>i {
-        color: $primary-orange;
-    }
+    // &>h1>i {
+    //     color: $primary-orange;
+    // }
 
     &>section {
         &>div:first-child {
-            background-color: $primary-orange;
+            // background-color: $primary-orange;
             border-radius: 10px 10px 0 0;
         }
         &>div:last-child {
             border-radius: 0 0 10px 10px;
         }
-        &>div:not(:first-child) {
-            background-color: #1e1e1e;
-        }
+        // &>div:not(:first-child) {
+        //     background-color: #1e1e1e;
+        // }
         &>div {
             column-gap: 20px;
 
@@ -440,4 +440,40 @@ header {
         }
 
     }
+}
+
+.castomDashbord{
+    // background: rgb(245,55,50);
+    // background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+    background-image: url('/public/bg4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.castomMain{
+    background-color: whitesmoke ;
+}
+
+.castomBruno{
+    background-color: #d7d6d6;
+}
+
+.castomButton{
+    background: rgb(245,55,50);
+    background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+}
+
+.castomRelative{
+    position: relative;
+}
+
+.castomAbsolute{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.card{
+    border: none !important;
+    box-shadow: 0 15px 25px rgba(91, 91, 91, 0.446);
 }
