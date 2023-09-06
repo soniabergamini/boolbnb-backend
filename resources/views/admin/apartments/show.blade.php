@@ -72,18 +72,25 @@
     <div class="container mt-5">
         <div class="row">
             <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-between my-5">
                 @foreach ($sponsorships as $sponsorship)
-                    <div class="card" style="width: 25rem;">
-                        <div class="card-body">
-                        <h5 class="card-title">{{ $sponsorship->name }}</h5>
-                        <p class="">{{ $sponsorship->price }}</p>
-                        <ul class="card-text">
-                            <li>{{ $sponsorship->hours}} hour sponsorship</li>
-                            <li>Greater visualization</li>
-                        </ul>
-                        <button onclick="window.location=`{{ route('admin.payment.token', ['apartment' => $apartment, 'sponsorship' => $sponsorship]) }}`" class="pay">Pay</button>
+                  <div class="castomCard rounded p-3">
+                    <div class="castomCardHeader">
+                        <h6>{{ $sponsorship->name }}</h6>
+                        <h1>{{ $sponsorship->price }}€</h1>
                     </div>
+                    <hr>
+                    <div class="castomCardBody">
+                        <ul class="card-text">
+                            <li><i class="fa-solid fa-check me-2 castomCheck" style="color: #000000;"></i>{{ $sponsorship->hours}} hour sponsorship</li>
+                            <li class="mt-2"><i class="fa-solid fa-check me-2 castomCheck" style="color: #000000;"></i>Greater visualization</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="castomCardFooter">
+                        <button onclick="window.location=`{{ route('admin.payment.token', ['apartment' => $apartment, 'sponsorship' => $sponsorship]) }}`" class="mt-3 btn border rounded castomBtn">Pay</button>
+                    </div>
+
                   </div>
                 @endforeach
             </div>
@@ -136,4 +143,35 @@
         z-index: 1;
     } 
     
+    .castomCard{
+        width: 400px;
+        height: 320px;
+        background: rgb(213,205,205);
+        background: linear-gradient(233deg, rgba(213,205,205,1) 5%, rgba(255,255,255,1) 100%);
+        box-shadow: 0 0px 20px 8px rgba(154, 153, 153, 0.843);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .castomCard:hover{
+        transform: scale(1.1);
+        background: rgb(245,55,50);
+        background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+        color: white;
+
+        .castomBtn{
+            color: white !important;
+        }
+
+        .castomCheck{
+            color: white !important;
+        }
+    }
+
+    .castomBtn{
+        width: 90px;
+        background: rgb(245,55,50);
+        background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+        border: 1px solid rgb(245,55,50);
+    }
+
 </style>
