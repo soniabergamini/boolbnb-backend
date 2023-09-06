@@ -7,6 +7,7 @@ use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Models\Apartment;
 use App\Models\Service;
+use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
@@ -49,7 +50,7 @@ class ApartmentController extends Controller
         $data['user_id'] = Auth::id();
 
         $apiURL = config('store.tomtomApi.apiUrl') . $data['address'] . '.json?key=' . env('TOMTOM_API_KEY');
-        
+
         // $response = Http::get($apiURL);
         $response = Http::withOptions(['verify' => false])->get($apiURL); // Disable certificate verification temporarily
         if(!$response['results'] || $response['results']['0']['position']['lon'] === 8.05024) {
@@ -58,7 +59,7 @@ class ApartmentController extends Controller
 
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
-       
+
 
         $data['image'] = Storage::put('uploads', $data['image']);
 
@@ -86,7 +87,9 @@ class ApartmentController extends Controller
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
 
-        return view("admin.apartments.show", compact("apartment"));
+        $sponsorships = Sponsorship::all();
+
+        return view("admin.apartments.show", compact('apartment', 'sponsorships'));
     }
 
     /**
