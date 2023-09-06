@@ -22,7 +22,6 @@ class ApartmentSeeder extends Seeder
      */
     public function run()
     {
-
         // Prevent Drop Table
         Schema::disableForeignKeyConstraints();
         Apartment::truncate();
@@ -33,6 +32,7 @@ class ApartmentSeeder extends Seeder
         $sponsorships = Sponsorship::all(["id"]);
         $apartments = config('store.apartments');
         $imageNum = 1;
+        $sponsPresence = false;
 
         foreach ($apartments as $apartment) {
 
@@ -60,15 +60,16 @@ class ApartmentSeeder extends Seeder
                 $apartmentServices[] = $services->random()->id;
             }
             // Add Random Sponsorship
-            $apartmentsponsorship = $sponsorships->random()->id;
+            $apartmentsponsorship = $sponsPresence ? $sponsorships->random()->id : null;
 
             $newApartment->save();
             $newApartment->services()->sync(array_unique($apartmentServices));
-            $newApartment->sponsorships()->attach($apartmentsponsorship, array(
+            $apartmentsponsorship && $newApartment->sponsorships()->attach($apartmentsponsorship, array(
                 'start_date' => Carbon::now(),
                 'end_date' => Carbon::now()->addDays(rand(1, 3))
             ));
             $imageNum++;
+            $sponsPresence = !$sponsPresence;
         }
     }
 }
