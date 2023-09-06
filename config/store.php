@@ -161,6 +161,86 @@
                 'square_meters' => 330,
                 'address' => '333 E Durant Ave, Aspen, CO 81611, United States',
                 'visible' => true
+            ],
+            [
+                'name' => 'Mountain Best Escape',
+                'description' => 'A cozy mountain getaway in the heart of Aspen. This apartment offers you the comforts of home and a prime location to explore the natural beauty of the surroundings. An ideal spot for a relaxing vacation.',
+                'room_number' => 4,
+                'bed_number' => 3,
+                'bathroom_number' => 2,
+                'square_meters' => 100,
+                'address' => 'Snowmass, CO 81654, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Fly Tranquility Resort',
+                'description' => 'Discover serenity and elegance at the Fly Tranquility Haven. This charming apartment, nestled just a stone\'s throw away from the airport, offers a perfect blend of convenience and relaxation. Whether you\'re here for adventure or seeking a peaceful escape, this is your haven in Aspen.',
+                'room_number' => 6,
+                'bed_number' => 4,
+                'bathroom_number' => 3,
+                'square_meters' => 160,
+                'address' => '233 Airport Rd, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Owl Creek Mountain Retreat',
+                'description' => 'Welcome to the Owl Creek Mountain Retreat, a hidden gem in the heart of Aspen. Nestled amidst the scenic beauty of the Colorado mountains, this exquisite apartment offers unparalleled tranquility and breathtaking views. Immerse yourself in the serenity of nature while being just a short drive away from Aspen\'s vibrant downtown.',
+                'room_number' => 10,
+                'bed_number' => 7,
+                'bathroom_number' => 4,
+                'square_meters' => 220,
+                'address' => '1471 Owl Creek Ranch Rd, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Snowmass Valley Center',
+                'description' => 'Discover the Snowmass Valley Center, a charming retreat nestled in the heart of Snowmass Village, Colorado. This cozy apartment offers a perfect blend of comfort and convenience, making it an ideal base for your mountain adventures. Enjoy the serene beauty of the Colorado Rockies while being just moments away from the village\'s attractions.',
+                'room_number' => 10,
+                'bed_number' => 7,
+                'bathroom_number' => 5,
+                'square_meters' => 250,
+                'address' => '2835 Brush Creek Rd, Snowmass Village, CO 81615, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Twining Flats Retreat',
+                'description' => 'Welcome to Twining Flats Retreat, your escape to the scenic beauty of Aspen, Colorado. This inviting apartment offers a perfect blend of rustic charm and modern comfort, making it an ideal getaway for nature enthusiasts and relaxation seekers. Explore the breathtaking landscapes of the Colorado Rockies right from your doorstep.',
+                'room_number' => 9,
+                'bed_number' => 6,
+                'bathroom_number' => 4,
+                'square_meters' => 190,
+                'address' => '324 Twining Flats Rd, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Woody Creek Oasis',
+                'description' => 'Discover the serenity of Woody Creek Oasis, nestled in the heart of Snowmass, Colorado. This charming apartment offers a tranquil escape surrounded by the natural beauty of the Rockies. With its cozy interiors and easy access to outdoor adventures, it\'s the perfect haven for a peaceful retreat.',
+                'room_number' => 7,
+                'bed_number' => 4,
+                'bathroom_number' => 2,
+                'square_meters' => 300,
+                'address' => '1814 Woody Creek Rd, Snowmass, CO 81654, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Park Avenue Retreat',
+                'description' => 'Welcome to Park Avenue Retreat, a stylish apartment located in the heart of Aspen, Colorado. This urban haven offers modern comforts with easy access to the vibrant downtown scene. Whether you\'re here for skiing or exploring the town\'s cultural attractions, this apartment is your serene base in the Rockies.',
+                'room_number' => 4,
+                'bed_number' => 2,
+                'bathroom_number' => 1,
+                'square_meters' => 90,
+                'address' => '263 Park Ave, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Downtown Oasis Retreat',
+                'description' => 'Experience the vibrant heart of Aspen at our Downtown Oasis Retreat. This stylish apartment is located on historic Main Street, just steps away from shops, restaurants, and cultural attractions. Enjoy the convenience of city living with mountain views.',
+                'room_number' => 3,
+                'bed_number' => 1,
+                'bathroom_number' => 1,
+                'square_meters' => 80,
+                'address' => '200 W Main St, Aspen, CO 81611, United States',
+                'visible' => true
             ]
         ],
         'services' => [
