@@ -14,21 +14,15 @@
     @endif
 
     @foreach ($apartments as $apartment)
-        <div class="card" style="width: 18rem;">
-        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="card-img-top" alt="apartment image" style="height: 12rem;">
-        <div class="card-body">
+        <div class="card castomRelative" style="width: 18rem; height: 26rem;">
+        <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="object-fit-cover card-img-top" alt="apartment image" style="height: 12rem;">
+        <div class="card-body bg-white rounded-bottom">
             <h5 class="card-title mb-3">{{ $apartment->name }}</h5>
             <div class="card-text">
                 <p><strong>Address: </strong><span>{{ $apartment->address }}</span></p>
-                <p><strong>Additional Services: </strong>
-                    @forelse ($apartment->services as $service)
-                        <span>{{ $service->name }}, </span>
-                    @empty
-                        <span>N/A</span>
-                    @endforelse
                 </p>
             </div>
-            <a href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-primary">Visit</a>
+            <a href="{{ route('admin.apartments.show', $apartment) }}" class="castomAbsolute btn castomButton text-white border border-light-subtle">Visit</a>
         </div>
         </div>
     @endforeach

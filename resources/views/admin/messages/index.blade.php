@@ -13,10 +13,10 @@
             </div>
         @endif
 
-        <h1 class="colPrimaryOrange"><i class="fa-solid fa-envelope fa-lg fa-fw me-1"></i> Messages</h1>
+        <h1 class="mx-2 mt-5 text-body-secondary">Messages</h1>
 
-        <div class="w-100 d-flex justify-content-end me-4">
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        <div class="w-100 d-flex justify-content-end me-5">
+            <button class="btn castomButton text-white border border-light-subtle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                 aria-controls="offcanvasRight">Filter</button>
         </div>
 
@@ -25,14 +25,15 @@
                 <p>There are no messages to display.</p>
             </div>
         @else
-            <section class="p-2 mx-2 text-white">
-                <div class="d-flex border border-secondary p-2">
+            <section class="p-2 mx-2 text-body-secondary">
+                <div class="d-flex p-2 text-body-secondary castomBruno">
                     <p class="w-15 m-0"><strong>Apartment Image</strong></p>
                     <p class="w-25 m-0"><strong>User Email</strong></p>
                     <p class="w-60 m-0"><strong>Message</strong></p>
                 </div>
+                <hr class="m-0 colPrimaryOrange border-5">
                 @forelse ($messages as $message)
-                    <div class="d-flex border border-secondary align-items-center">
+                    <div class="bg-white d-flex border border-secondary-subtle align-items-center  text-secondary-emphasis">
                         <div class="w-15 p-2 position-relative message">
                             <img src="{{ asset('/storage') . '/' . $message->apartment->image }}"
                                 :alt="$message->apartment->name" class="img-fluid rounded">
@@ -66,7 +67,7 @@
                         </select>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">SEARCH</button>
+                        <button type="submit" class="btn castomButton text-white border border-light-subtle">SEARCH</button>
                     </div>
                 </form>
             </div>

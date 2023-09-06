@@ -26,42 +26,43 @@
         @include('layouts.header')
  		<div id="adminContainer" class="container-fluid">
  			<div class="row">
- 				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+				{{-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse"> --}}
+ 				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse castomDashbord">
  					<div class="position-sticky pt-3">
  						<ul id="adminLeftMenu" class="nav flex-column">
 
  							<li class="nav-item rounded">
- 								<a class="nav-link text-white py-3" href="/">
+ 								<a class="nav-link text-body-secondary py-3" href="/">
  									<i class="fa-solid fa-home-alt fa-lg fa-fw me-3"></i> Home
  								</a>
  							</li>
 
  							<li class="nav-item rounded">
- 								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange rounded' : '' }}" href="{{route('admin.dashboard')}}">
+ 								<a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange rounded' : '' }}" href="{{route('admin.dashboard')}}">
  									<i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-3"></i> Dashboard
  								</a>
  							</li>
 
 							<li class="nav-item rounded">
-								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.apartments.index')}}">
+								<a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.apartments.index')}}">
 									<i class="fa-solid fa-building-user  fa-lg fa-fw me-3"></i> Your apartments
 								</a>
 							</li>
 
 							<li class="nav-item rounded">
-								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-orange rounded' : '' }}" href="{{route('admin.apartments.create')}}">
+								<a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-orange rounded' : '' }}" href="{{route('admin.apartments.create')}}">
 									<i class="fa-solid fa-plus fa-lg fa-fw me-3"></i> Add apartment
 								</a>
 							</li>
 
                             <li class="nav-item rounded">
-								<a class="nav-link text-white py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.messages.index')}}">
+								<a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}" href="{{route('admin.messages.index')}}">
 									<i class="fa-solid fa-envelope fa-lg fa-fw me-3"></i> Messages
 								</a>
 							</li>
 
  							<li class="nav-item rounded">
- 								<a class="nav-link text-white py-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+ 								<a class="nav-link text-body-secondary py-3" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
  									<i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-3"></i> {{ __('Logout') }}
  								</a>
  								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -74,7 +75,7 @@
  					</div>
  				</nav>
 
- 				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
+ 				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 castomMain">
  					@yield('content')
  				</main>
  			</div>

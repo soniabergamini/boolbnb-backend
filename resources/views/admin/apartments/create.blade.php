@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid mt-4 d-flex flex-wrap justify-content-between">
         <div class="row w-100">
-            <h1 class="mb-5 text-light">Insert new apartment</h1>
+            <h1 class="mb-5 text-body-secondary">Insert new apartment</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -132,7 +132,7 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
 
-                <button type="submit" class="btn btn-primary mt-2">Add</button>
+                <button type="submit" class="btn castomButton text-white border border-light-subtle my-3">Add</button>
             </form>
 
         </div>
