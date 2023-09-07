@@ -30,7 +30,7 @@
 
                 <div class="mt-3">
                     <label class="mb-1" for="description">Apartment description</label>
-                    <textarea required name="description" id="description" cols="10" rows="5" value="{{ old('description') ?? $apartment->description }}" class="form-control @error('description') is-invalid @enderror"></textarea>
+                    <textarea required name="description" id="description" cols="10" rows="5" class="form-control @error('description') is-invalid @enderror">{{ old('description') ?? $apartment->description }}</textarea>
                 </div>
                 @error('description')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
