@@ -44,20 +44,25 @@
                 </ul>
                 <hr>
                 <div class="d-flex">
-                    <div class="mx-2 castomDiv">
-                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="badge text-bg-success editShow">
-                            <i class="fa-solid fa-pen-to-square castomIcon"></i>
+                    <div class="">
+                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="castomDiv "> 
+                            Edit <i class="fa-solid fa-pen-to-square castomIcon"></i>
                         </a>
                     </div>
 
-                    <div class="castomDiv">
+                    <div>
                         <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                            <div class="castomDelete">
+                            @csrf
+                            @method('DELETE')
+                            <div class="input-group ">
                                 <div>
-                                    <button type="submit" class="btn badge text-bg-danger"><i class="fa-solid fa-trash-can castomIcon"></i></button>
+                                    <input type="submit" value="" class="">
                                 </div>
+    
+                                <div>
+                                    <a type="submit" class=""> Delete <i class="fa-solid fa-trash-can"></i></a>
+                                </div>
+    
                             </div>
                         </form>
                     </div>
@@ -113,29 +118,52 @@
         width: calc(100% / 3 - 15px);
         transition: all .7s ease-in-out;
     }
+    .castomDiv{
+        width: 6rem;
+        height: 1.5rem;
+        background-color: rgb(17, 102, 38);
+        color: white;
+        padding-left: 1.5rem;
+        border-radius: 5px;
+        display: flex;
+        gap: 0.5rem;
+    }
 
     .castomIcon{
-        width: 40px;
-        height: 40px;
-        font-size: 30px;
+        width: 3rem;
+        height: 1.5;
+        font-size: 1.2rem;   
     }
-
-    .castomDiv{
-        width: 60px;
-        height: 60px;
+    .input-group {
+        position: absolute;
+        max-width: 2rem;
+        max-height: 1rem;
+        margin-left: 1rem;
     }
-
-    .castomDelete input {
-        width: 50px;
-        height: 50px;
+    .input-group input {
+        width: 6rem;
         position: absolute;
         left: 0px;
+        /* background-color: red; */
         background-color: transparent;
         border: none;
         color: none;
         z-index: 10;
     }
 
+    .input-group a {
+        width: 6rem;
+        position: relative;
+        left: 1px;
+        z-index: 1;
+        background-color: rgb(138, 13, 13);
+        color: white;
+        padding-left: 1rem;
+        border-radius: 5px;
+        gap: 0.6rem;
+        
+
+    }
     .castomDelete a {
         position: relative;
         z-index: 1;
