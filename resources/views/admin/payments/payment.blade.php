@@ -66,8 +66,10 @@
                     <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $apartment->id }}">
                     <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" value="">
                     <div id="dropin-container"></div>
-                    <button id="submit-button" type="button"
-                        class="btn castomButton text-white border border-light-subtle mt-2">Confirm Payment</button>
+                    <div class="mt-2 d-flex justify-content-center">
+                        <button id="submit-button" type="button"
+                        class="btn castomButton text-white border border-light-subtle">Confirm Payment</button>
+                    </div>
                 </form>
             </div>
         </div>

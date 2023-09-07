@@ -461,14 +461,13 @@ header {
 .castomButton{
     background: rgb(245,55,50);
     background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
-    transition: background 0.5s ease-in-out; /* Aggiungi una transizione semplice */
-    position: relative;
+    transition: background 0.5s ease-in-out;
     overflow: hidden;
 }
 
 .castomButton:hover {
     background: linear-gradient(267deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
-    background-size: 300% 100%; /* Aumenta la larghezza del gradiente ancora di più */
+    background-size: 300% 100%;
     animation: gradientShift .5s infinite alternate;
 }
 

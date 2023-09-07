@@ -55,7 +55,10 @@
                 <strong class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</strong>
             </div>
         </div>
-        <button type="button" onclick="window.location=`{{ route('admin.dashboard') }}`" class="btn castomButton text-white border border-light-subtle mt-2 mb-1 ms-4"><i class="fa-solid fa-arrow-left text-white"></i> Go Back Home</button>
+        <div class="px-4 mt-2 mb-1 d-flex justify-content-center">
+            <button type="button" onclick="window.location=`{{ route('admin.dashboard') }}`" class="btn castomButton text-white border border-light-subtle"><i class="fa-solid fa-arrow-left text-white"></i> Go Back Home</button>
+        </div>
+
     </div>
 
 </div>
