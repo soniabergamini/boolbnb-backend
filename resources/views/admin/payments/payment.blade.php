@@ -7,8 +7,10 @@
             <div class="overlay py-3 text-white text-center w-100">
                 <h3>{{ $apartment->name }}</h3>
                 <div class="text-start colPrimaryOrange px-4">
-                    <span>{{ $sponsorship->name }} Sponsorship </span><strong class="fs-5">€
-                        {{ $sponsorship->price }}</strong>
+                    <span>{{ $sponsorship->name }} Sponsorship </span>
+                    <strong class="fs-5">€ {{ $sponsorship->price }} </strong>
+                    <span class="separator mx-1">|</span>
+                    <span> {{ $sponsorship->hours }} Hours Featured</span>
                 </div>
                 <hr class="mx-3 mb-3 border-2">
                 <div class="text-start px-4">
@@ -108,6 +110,10 @@
 
             & p {
                 font-size: 14px;
+            }
+
+            & .separator {
+                font-size: 30px;
             }
         }
 
