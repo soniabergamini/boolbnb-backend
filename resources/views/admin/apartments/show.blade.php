@@ -76,7 +76,7 @@
         <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
         <div class="row justify-content-between my-5">
                 @foreach ($sponsorships as $sponsorship)
-                  <div class="col-11 col-lg-4 castomCard rounded p-3">
+                  <div class="col-11 col-lg-4 castomCard rounded p-3 my-2">
                     <div class="castomCardHeader">
                         <h6>{{ $sponsorship->name }}</h6>
                         <h1>{{ $sponsorship->price }}€</h1>
