@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('apartment_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('sponsorship_id')->nullable()->constrained()->onDelete('cascade');
-            $table->date("start_date");
-            $table->date('end_date');
+            $table->datetime("start_date");
+            $table->datetime('end_date');
             $table->timestamps();
         });
     }
