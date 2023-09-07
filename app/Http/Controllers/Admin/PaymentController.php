@@ -8,6 +8,8 @@ use App\Models\Apartment;
 use App\Models\Sponsorship;
 use Braintree\Transaction;
 use Braintree\Gateway;
+use Carbon\Carbon;
+use DateInterval;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 
@@ -16,10 +18,11 @@ class PaymentController extends Controller
     public function token(Apartment $apartment, Sponsorship $sponsorship)
     {
         // Policy Filter
-        if($apartment->user_id != Auth::id()) {
+        if ($apartment->user_id != Auth::id()) {
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
 
+        // Generates a payment token
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
             'merchantId' => env("BRAINTREE_MERCHANT_ID"),
@@ -38,13 +41,25 @@ class PaymentController extends Controller
 
     public function process(Request $request)
     {
+        // Retrieve data for transaction
         $nonce = $request->input('payment_method_nonce');
-        dump('payment method: ', $nonce);
         $amount = $request->input('amount');
-        dump('amount: ', $amount);
-        $apartment = $request->input('apartment_id');
-        dump('apartment id: ', $apartment);
+        $sponsorship = Sponsorship::where('id', $request->input('spons_id'))->where('price', $amount)->first();
+        $startDate = $request->input('spons_date') . ' ' . Carbon::now()->format('H:i:s');
+        $apartment = Apartment::findOrFail($request->input('apartment_id'));
 
+        // Policy & Security Filter
+        if (
+            $apartment->user_id != Auth::id() ||
+            !$sponsorship ||
+            $sponsorship->price != $amount ||
+            $startDate < Carbon::now() ||
+            $startDate > Carbon::now()->addDays(95)
+        ) {
+            return redirect()->route('admin.apartments.index')->withErrors('Something went wrong while processing your sponsorship and the payment has not been made.');
+        }
+
+        // Try to make the transaction
         $gateway = new Gateway([
             'environment' => env('BRAINTREE_ENVIRONMENT'),
             'merchantId' => env("BRAINTREE_MERCHANT_ID"),
@@ -59,16 +74,26 @@ class PaymentController extends Controller
             ]);
 
             if ($result->success) {
-                dd('successsss: ', $result);
-                return 'Pagamento avvenuto con successo!';
+
+                $sponsDays = $sponsorship->hours / 24;
+                $endDate = Carbon::parse($startDate)->addDays($sponsDays)->format('Y-m-d H:i:s');
+
+                // Save the sponsorship into the DataBase
+                $apartment->sponsorships()->attach($sponsorship->id, [
+                    'start_date' => $startDate,
+                    'end_date' => $endDate
+                ]);
+                // dump('successsss: ', $result);
+                // dump('payment method: ' . $nonce, '€' . $amount, $apartment, $sponsorship, $startDate, $endDate);
+
+                return view('admin.payments.success', compact('apartment', 'sponsorship', 'startDate', 'endDate'));
             } else {
-                // Gestisci l'errore del pagamento
                 dd('fail: ', $result);
-                return 'Errore durante il pagamento: ' . $result->message;
+                return 'Payment error: ' . $result->message;
+                // return redirect()->route('admin.apartments.index')->withErrors('Something went wrong while processing your sponsorship. The payment has failed.');
             }
         } catch (\Exception $e) {
-            Log::error('Errore durante il pagamento: ' . $e->getMessage());
-            return 'Errore durante il pagamento: ' . $e->getMessage();
+            return 'Payment error:' . $e->getMessage();
         }
     }
 }
