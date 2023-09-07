@@ -15,14 +15,14 @@
         <div class="row">
             <h2 class="colPrimaryOrange my-5">{{ $apartment->name }}</h2>
 
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 {{-- img --}}
                 <div class="">
                     <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="rounded-2 object-fit-cover" alt="apartment image">
                 </div>
 
             </div>
-            <div class="col-6 py-3">
+            <div class="col-12 col-lg-6 py-3">
                 {{-- info apartment --}}
                 <p class=""><strong class="colPrimaryOrange ">Address: </strong><span>{{ $apartment->address }}</span></p>
                 <hr>
@@ -73,11 +73,10 @@
     </div>
 
     <div class="container mt-5">
-        <div class="row">
-            <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
-            <div class="col-12 d-flex justify-content-between my-5">
+        <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
+        <div class="row justify-content-between my-5">
                 @foreach ($sponsorships as $sponsorship)
-                  <div class="castomCard rounded p-3">
+                  <div class="col-11 col-lg-4 castomCard rounded p-3">
                     <div class="castomCardHeader">
                         <h6>{{ $sponsorship->name }}</h6>
                         <h1>{{ $sponsorship->price }}€</h1>
