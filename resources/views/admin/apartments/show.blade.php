@@ -26,10 +26,12 @@
                 {{-- info apartment --}}
                 <p class=""><strong class="colPrimaryOrange ">Address: </strong><span>{{ $apartment->address }}</span></p>
                 <hr>
-                <p class="colPrimaryOrange"><strong>Info Apartment: </strong>
+                <p class="colPrimaryOrange"><strong>Apartment details: </strong>
                 <p class="mx-2">Square Meters: {{$apartment->square_meters}} mq</p>
+                <p class="mx-2">Room Number: {{$apartment->room_number}}</p>
                 <p class="mx-2">Bed Number: {{$apartment->bed_number}}</p>
                 <p class="mx-2">Bathroom Number: {{$apartment->bathroom_number}}</p>
+                <p class="mx-2">Visible to guests: {{ $apartment->visible ? 'VISIBLE' : 'HIDDEN' }}</p>
                 <hr>
                 <p class="colPrimaryOrange"><strong>Additional Services: </strong>
                 <ul class="d-flex flex-wrap p-0">
