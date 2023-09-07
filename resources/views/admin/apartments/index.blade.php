@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="d-flex flex-wrap gap-3 p-2 my-3">
+{{-- <div class="d-flex flex-wrap gap-3 p-2 my-3"> --}}
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-2">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -12,6 +12,8 @@
             </ul>
         </div>
     @endif
+
+<div class="d-flex flex-wrap gap-3 p-2 my-3">
 
     @foreach ($apartments as $apartment)
         <div class="card castomRelative" style="width: 18rem; height: 26rem;">
