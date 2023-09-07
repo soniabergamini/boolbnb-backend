@@ -30,8 +30,8 @@
         <div class="px-4">
             <strong class="fs-4">PAYMENT SUCCESSFULL</strong>
         </div>
-        <div class="px-4 mt-2">
-            <p>Congratulations, your <strong>payment has been successful</strong> and your apartment {{ $apartment->name }} will be featured on our site starting on <strong>{{ $startDate }}</strong> and until {{ $endDate }}.</p>
+        <div class="px-4 mt-3 text-body-secondary">
+            <p>Congratulations, your <strong>payment has been successful</strong> and your apartment {{ $apartment->name }} will be featured on our site starting on <strong>{{ \Carbon\Carbon::parse($startDate)->format('Y/m/d') }}</strong> and until {{ \Carbon\Carbon::parse($endDate)->format('Y/m/d') }}.</p>
         </div>
         <div class="px-4">
             <strong class="fs-4">Order Summary</strong>
@@ -67,5 +67,6 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
+        min-height: 80%;
     }
 </style>

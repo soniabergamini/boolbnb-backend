@@ -461,6 +461,33 @@ header {
 .castomButton{
     background: rgb(245,55,50);
     background: linear-gradient(57deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+    transition: background 0.5s ease-in-out; /* Aggiungi una transizione semplice */
+    position: relative;
+    overflow: hidden;
+}
+
+.castomButton:hover {
+    background: linear-gradient(267deg, rgba(245,55,50,1) 1%, rgba(242,93,52,1) 36%, rgba(254,155,57,1) 84%);
+    background-size: 300% 100%; /* Aumenta la larghezza del gradiente ancora di più */
+    animation: gradientShift .5s infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 25% 0;
+    }
+    50% {
+        background-position: 50% 0;
+    }
+    75% {
+        background-position: 75% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
 }
 
 .castomRelative{
@@ -481,7 +508,7 @@ header {
 
 // PAYMENT PAGES
 
-.checkout, .success {
+.checkout, .success, .failed {
 
     & .overlay {
         background-color: rgba(0, 0, 0, 0.7);
@@ -495,24 +522,32 @@ header {
         }
     }
 
-    .w-40 {
+    & .w-40 {
         width: 40%
     }
 
-    .rightCol {
+    & .w-85 {
+        width: 85%;
+    }
+
+    & .rightCol {
         margin-left: -3rem;
         margin-top: 50px;
         margin-bottom: 50px;
     }
 
-    .overlay {
+    & .overlay {
         margin-bottom: 50px;
+    }
+
+    & button {
+        width: 50%;
     }
 
 }
 
 @media (max-width: 992px) {
-    .checkout, .success {
+    .checkout, .success, .failed {
         flex-direction: column !important;
         justify-content: center;
         align-items: center;
@@ -540,4 +575,13 @@ header {
         width: 100%;
     }
 
+}
+
+@media (max-width: 576px) {
+    .failed .buttons {
+        flex-wrap: wrap;
+    }
+    .failed button {
+        width: 100%;
+    }
 }

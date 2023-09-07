@@ -88,12 +88,12 @@ class PaymentController extends Controller
 
                 return view('admin.payments.success', compact('apartment', 'sponsorship', 'startDate', 'endDate'));
             } else {
-                dd('fail: ', $result);
-                return 'Payment error: ' . $result->message;
-                // return redirect()->route('admin.apartments.index')->withErrors('Something went wrong while processing your sponsorship. The payment has failed.');
+                // dd('fail: ', $result);
+                return view('admin.payments.failed', compact('apartment', 'sponsorship'));
             }
         } catch (\Exception $e) {
-            return 'Payment error:' . $e->getMessage();
+            // return 'Payment error:' . $e->getMessage();
+            return view('admin.payments.failed', compact('apartment', 'sponsorship'));
         }
     }
 }
