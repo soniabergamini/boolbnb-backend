@@ -31,7 +31,7 @@
                 <p class="mx-2">Room Number: {{$apartment->room_number}}</p>
                 <p class="mx-2">Bed Number: {{$apartment->bed_number}}</p>
                 <p class="mx-2">Bathroom Number: {{$apartment->bathroom_number}}</p>
-                <p class="mx-2">Visible to guests: {{ $apartment->visible ? 'VISIBLE' : 'HIDDEN' }}</p>
+                <p class="mx-2">Visible to guests: <i class="fa-solid {{ $apartment->visible ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }} fa-lg"></i> </p>
                 <hr>
                 <p class="colPrimaryOrange"><strong>Additional Services: </strong>
                 <ul class="d-flex flex-wrap p-0">
@@ -45,7 +45,7 @@
                 <hr>
                 <div class="d-flex">
                     <div class="">
-                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="castomDiv "> 
+                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="castomDiv ">
                             Edit <i class="fa-solid fa-pen-to-square castomIcon"></i>
                         </a>
                     </div>
@@ -58,11 +58,11 @@
                                 <div>
                                     <input type="submit" value="" class="">
                                 </div>
-    
+
                                 <div>
                                     <a type="submit" class=""> Delete <i class="fa-solid fa-trash-can"></i></a>
                                 </div>
-    
+
                             </div>
                         </form>
                     </div>
@@ -131,7 +131,7 @@
     .castomIcon{
         width: 3rem;
         height: 1.5;
-        font-size: 1.2rem;   
+        font-size: 1.2rem;
     }
     .input-group {
         position: absolute;
@@ -160,7 +160,7 @@
         padding-left: 1rem;
         border-radius: 5px;
         gap: 0.6rem;
-        
+
 
     }
     .castomDelete a {
