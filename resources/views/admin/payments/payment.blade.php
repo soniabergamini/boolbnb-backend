@@ -105,62 +105,6 @@
         background-repeat: no-repeat;
         background-position: center center;
 
-        & .overlay {
-            background-color: rgba(0, 0, 0, 0.7);
-
-            & p {
-                font-size: 14px;
-            }
-
-            & .separator {
-                font-size: 30px;
-            }
-        }
-
-        .w-40 {
-            width: 40%
-        }
-
-        .rightCol {
-            margin-left: -3rem;
-            margin-top: 50px;
-            margin-bottom: 50px;
-        }
-
-        .overlay {
-            margin-bottom: 50px;
-        }
     }
 
-    @media (max-width: 992px) {
-        .checkout {
-            flex-direction: column !important;
-            justify-content: center;
-            align-items: center;
-            padding-top: 30px;
-            padding-bottom: 30px;
-        }
-        .overlay {
-            margin-bottom: 0;
-        }
-        .rightCol {
-            margin: 0 !important;
-        }
-
-        .dateContainer {
-            flex-direction: column;
-            align-items: center;
-
-            & input {
-                margin-top: 10px;
-                width: 100% !important;
-            }
-        }
-
-        form button {
-            width: 100%;
-        }
-
-
-    }
 </style>

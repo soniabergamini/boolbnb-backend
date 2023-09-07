@@ -1,18 +1,71 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="row">
-    <div class="col-12">
-        <h1>Payment successful!</h1>
-        <p>Congratulations, your <strong>payment has been successful</strong> and your apartment {{ $apartment->name }} will be featured on our site starting on <strong>{{ $startDate }}</strong>.</p>
+
+<div class="row my-5 border success rounded">
+
+    {{-- Apartment Image and Sponsorship Advantages --}}
+    <div class="col-10 col-lg-5 p-0 leftCol d-flex align-items-end">
+        <div class="overlay py-3 text-white text-center w-100">
+            <h3>{{ $apartment->name }}</h3>
+            <div class="text-start colPrimaryOrange px-4">
+                <span>{{ $sponsorship->name }} Sponsorship </span>
+                <strong class="fs-5">€ {{ $sponsorship->price }} </strong>
+                <span class="separator mx-1">|</span>
+                <span> {{ $sponsorship->hours }} Hours Featured</span>
+            </div>
+            <hr class="mx-3 mb-3 border-2">
+            <div class="text-start px-4">
+                <p class="m-2"><i class="fa-solid fa-user-plus me-1"></i> Reach more people</p>
+                <p class="m-2"><i class="fa-solid fa-ranking-star me-1"></i> Put your apartment in the front row</p>
+                <p class="m-2"><i class="fa-solid fa-medal me-1"></i> Featured among the most voted</p>
+            </div>
+        </div>
     </div>
-    <div class="col-12">
-        <h4>ORDER SUMMARY:</h4>
-        <p>PLAN: <span>{{ $sponsorship->name }} Sponsorship </span></p>
-        <p>PRICE: <span>{{ $sponsorship->price }} </span></p>
-        <p>DURATION: <span>{{ $sponsorship->hours / 24 }} Days </span></p>
-        <p>START DATE: <span>{{ $startDate }}</span></p>
-        <p>END DATE: <span>{{ $endDate }}</span></p>
+
+    {{-- Summary & Checkout Form --}}
+    <div class="col-10 col-lg-7 bg-white pt-4 pb-2 px-0 rightCol">
+
+        {{-- Order Summary --}}
+        <div class="px-4">
+            <strong class="fs-4">PAYMENT SUCCESSFULL</strong>
+        </div>
+        <div class="px-4 mt-2">
+            <p>Congratulations, your <strong>payment has been successful</strong> and your apartment {{ $apartment->name }} will be featured on our site starting on <strong>{{ $startDate }}</strong> and until {{ $endDate }}.</p>
+        </div>
+        <div class="px-4">
+            <strong class="fs-4">Order Summary</strong>
+        </div>
+        <div class="my-3 px-4">
+            <div class="d-flex justify-content-between text-body-secondary">
+                <p class="mx-0 my-2">{{ $sponsorship->name }} Sponsorship ({{ $sponsorship->hours }} Hours Featured)</p>
+                <span class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</span>
+            </div>
+            <div class="d-flex justify-content-between text-body-secondary">
+                <p class="mx-0 my-2">Discount</p>
+                <span class="text-right mx-0 my-2"> € 0</span>
+            </div>
+            <div class="d-flex justify-content-between text-body-secondary">
+                <p class="mx-0 my-2">Subtotal</p>
+                <span class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</span>
+            </div>
+            <hr class="my-1 mx-0">
+            <div class="d-flex justify-content-between text-body-secondary">
+                <strong class="mx-0 my-2">Total</strong>
+                <strong class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</strong>
+            </div>
+        </div>
+
     </div>
+
 </div>
 @endsection
+
+<style>
+    .success {
+        background-image: url('{{ asset('/storage') . '/' . $apartment->image }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+</style>

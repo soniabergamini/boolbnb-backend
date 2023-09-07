@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apartment;
-use Carbon\Doctrine\CarbonTypeConverter;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -25,7 +24,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::with('services')->where('visible', true)->paginate(9);
         $status = $apartments ? 200 : 404;
         $response = $apartments ? ["success" => true, "results" => $apartments] : ["error" => "Something went wrong while loading apartments data"];
-        return response()->json($response);
+        return response()->json($response, $status);
     }
 
     public function show($id)
@@ -40,7 +39,7 @@ class ApartmentController extends Controller
 
     public function sponsored()
     {
-        $today = Carbon::now(); // Ottieni la data odierna con Carbon
+        $today = Carbon::now();
 
         $apartments = Apartment::whereHas('sponsorships', function ($query) use ($today) {
             $query->where('start_date', '<=', $today)
