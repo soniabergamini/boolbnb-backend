@@ -1,23 +1,77 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="py-12">
-        {{-- @csrf --}}
-        <div id="dropin-container"></div>
-        <form id="payment-form" action="{{ route('admin.payment.process') }}" method="POST">
-            @csrf
-            {{-- <label for="amount">Importo del pagamento:</label> --}}
-            {{-- <input type="text" id="amount" name="amount" required> --}}
-            <input type="hidden" id="amount" name="amount" value="{{ $sponsorship->price }}">
-            <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $apartment->id }}">
-            <!-- Altri campi del form, se necessario -->
-            <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" value="">
-            <button id="submit-button" type="button">Conferma Pagamento</button>
-        </form>
+    <div class="row my-5 border checkout rounded">
 
+        {{-- Apartment Image and Sponsorship Advantages --}}
+        <div class="col-10 col-lg-5 p-0 leftCol d-flex align-items-end">
+            <div class="overlay py-3 text-white text-center w-100">
+                <h3>{{ $apartment->name }}</h3>
+                <div class="text-start colPrimaryOrange px-4">
+                    <span>{{ $sponsorship->name }} Sponsorship </span><strong class="fs-5">€
+                        {{ $sponsorship->price }}</strong>
+                </div>
+                <hr class="mx-3 mb-3 border-2">
+                <div class="text-start px-4">
+                    <p class="m-2"><i class="fa-solid fa-user-plus me-1"></i> Reach more people</p>
+                    <p class="m-2"><i class="fa-solid fa-ranking-star me-1"></i> Put your apartment in the front row</p>
+                    <p class="m-2"><i class="fa-solid fa-medal me-1"></i> Featured among the most voted</p>
+                </div>
+            </div>
+        </div>
+
+        {{-- Summary & Checkout Form --}}
+        <div class="col-10 col-lg-7 bg-white pt-4 pb-2 px-0 rightCol">
+
+            {{-- Order Summary --}}
+            <div class="px-4">
+                <strong class="fs-4">RECEIPT SUMMARY</strong>
+            </div>
+            <div class="my-3 px-4">
+                <div class="d-flex justify-content-between text-body-secondary">
+                    <p class="mx-0 my-2">{{ $sponsorship->name }} Sponsorship</p>
+                    <span class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</span>
+                </div>
+                <div class="d-flex justify-content-between text-body-secondary">
+                    <p class="mx-0 my-2">Discount</p>
+                    <span class="text-right mx-0 my-2"> € 0</span>
+                </div>
+                <div class="d-flex justify-content-between text-body-secondary">
+                    <p class="mx-0 my-2">Subtotal</p>
+                    <span class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</span>
+                </div>
+                <hr class="my-1 mx-0">
+                <div class="d-flex justify-content-between text-body-secondary">
+                    <strong class="mx-0 my-2">Total</strong>
+                    <strong class="text-right mx-0 my-2"> € {{ $sponsorship->price }}</strong>
+                </div>
+            </div>
+
+            <hr class="mx-0 my-2 colPrimaryOrange border-3">
+
+            {{-- Payment Form --}}
+            <div class="px-4">
+                <form id="payment-form" action="{{ route('admin.payment.process') }}" method="POST">
+                    @csrf
+                    <p class="fs-5 mt-3 mb-4"><strong>Payment Info</strong></p>
+                    <input type="hidden" id="amount" name="amount" value="{{ $sponsorship->price }}">
+                    <div class="d-flex justify-content-between text-body-secondary dateContainer">
+                        <label for="spons_date">Choose the <strong>start date</strong> of your
+                            sponsorship:</label>
+                        <input type="date" name="spons_date" id="spons_date" required min="{{ date('Y-m-d') }}"
+                            max="{{ date('Y-m-d', strtotime('+2 months')) }}" class="w-40">
+                    </div>
+                    <input type="hidden" id="spons_id" name="spons_id" value="{{ $sponsorship->id }}">
+                    <input type="hidden" id="apartment_id" name="apartment_id" value="{{ $apartment->id }}">
+                    <input type="hidden" id="payment_method_nonce" name="payment_method_nonce" value="">
+                    <div id="dropin-container"></div>
+                    <button id="submit-button" type="button"
+                        class="btn castomButton text-white border border-light-subtle mt-2">Confirm Payment</button>
+                </form>
+            </div>
+        </div>
+
+        {{-- Braintree Script --}}
         <script src="https://js.braintreegateway.com/web/dropin/1.40.2/js/dropin.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
         <script>
             var button = document.querySelector('#submit-button');
 
@@ -32,90 +86,75 @@
                             return;
                         }
 
-                        // Inserisci il nonce nel campo del form
                         document.querySelector('#payment_method_nonce').value = payload.nonce;
-
-                        // Invia il form al controller
                         document.querySelector('#payment-form').submit();
                     });
                 });
             });
         </script>
 
-
-        {{-- <script>
-            var button = document.querySelector('#submit-button');
-
-            braintree.dropin.create({
-                // Insert your tokenization key here
-                authorization: 'sandbox_w362cfkp_htxcdmp9ttv73hz8',
-                container: '#dropin-container'
-            }, function(createErr, instance) {
-                button.addEventListener('click', function() {
-                    instance.requestPaymentMethod(function(err, payload) {
-                        (function($) {
-                            $(function() {
-                                $.ajaxSetup({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]')
-                                            .attr('content')
-                                    }
-                                });
-                                $.ajax({
-                                    type: "POST",
-                                    url: "{{ route('admin.payment.token') }}",
-                                    data: {
-                                        nonce: payload.nonce
-                                    },
-                                    success: function(data) {
-                                        console.log('success', payload.nonce)
-                                    },
-                                    error: function(data) {
-                                        console.log('error', payload.nonce)
-                                    }
-                                });
-                            });
-                        })(jQuery);
-                    });
-                });
-            });
-        </script> --}}
-
-
-
-
-        {{-- <script>
-            axios.defaults.headers.common['X-CSRF-TOKEN'] = document.querySelector('meta[name="csrf-token"]').getAttribute(
-                'content');
-
-            console.log("CSRF Token:", "{{ csrf_token() }}");
-            console.log("token:", '{{ $token }}');
-            var button = document.querySelector('#submit-button');
-            var instancee;
-
-            braintree.dropin.create({
-                authorization: '{{ $token }}',
-                container: '#dropin-container'
-            }, function(createErr, instance) {
-                instancee = instance;
-                button.addEventListener('click', function() {
-                    instance.requestPaymentMethod(function(err, payload) {
-                        $.post("{{ route('admin.payment.token') }}", {
-                            _token: "{{ csrf_token() }}",
-                            nonce: payload.nonce
-                        }, function(data) {
-                            console.log('success', payload.nonce);
-                        }).fail(function(data) {
-                            die(data);
-                            // console.log('error', payload.nonce);
-                        });
-                    });
-                });
-            });
-        </script> --}}
-
-
-
-
     </div>
 @endsection
+
+<style>
+    .checkout {
+        background-image: url('{{ asset('/storage') . '/' . $apartment->image }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        & .overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+
+            & p {
+                font-size: 14px;
+            }
+        }
+
+        .w-40 {
+            width: 40%
+        }
+
+        .rightCol {
+            margin-left: -3rem;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .overlay {
+            margin-bottom: 50px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .checkout {
+            flex-direction: column !important;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .overlay {
+            margin-bottom: 0;
+        }
+        .rightCol {
+            margin: 0 !important;
+        }
+
+        .dateContainer {
+            flex-direction: column;
+            align-items: center;
+
+            & input {
+                margin-top: 10px;
+                width: 100% !important;
+            }
+        }
+
+        form button {
+            width: 100%;
+        }
+
+
+    }
+</style>
