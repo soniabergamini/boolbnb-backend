@@ -54,11 +54,7 @@
                         @method('DELETE')
                             <div class="castomDelete">
                                 <div>
-                                    <input type="submit" value="" class="">
-                                </div>
-    
-                                <div>
-                                    <a type="submit" class="badge text-bg-danger"> <i class="fa-solid fa-trash-can castomIcon"></i></a>
+                                    <button type="submit" class="btn badge text-bg-danger"><i class="fa-solid fa-trash-can castomIcon"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -141,8 +137,8 @@
     .castomDelete a {
         position: relative;
         z-index: 1;
-    } 
-    
+    }
+
     .castomCard{
         width: 400px;
         height: 320px;
