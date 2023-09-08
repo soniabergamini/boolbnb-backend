@@ -13,14 +13,14 @@
                 'visible' => true
             ],
             [
-                'name' => 'Beautiful Apartment',
+                'name' => 'Beautiful Hall',
                 'description' => 'Immerse yourself in the Parisian ambiance from this chic apartment. With a panoramic view of the City of Lights, become a part of the elegance that Paris offers.',
                 'room_number' => 5,
                 'bed_number' => 3,
                 'bathroom_number' => 2,
                 'square_meters' => 100,
                 'address' => '1 Rue Augereau, 75007 Paris, France',
-                'visible' => false
+                'visible' => true
             ],
             [
                 'name' => 'Nature House',
@@ -50,7 +50,7 @@
                 'bathroom_number' => 3,
                 'square_meters' => 400,
                 'address' => 'Via della Stazione 35, 6780 Airolo, Switzerland',
-                'visible' => true
+                'visible' => false
             ],
             [
                 'name' => 'Mountain Cottage',

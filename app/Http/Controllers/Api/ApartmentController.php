@@ -44,7 +44,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::whereHas('sponsorships', function ($query) use ($today) {
             $query->where('start_date', '<=', $today)
                 ->where('end_date', '>=', $today);
-        })->get();
+        })->where('visible', true)->get();
 
             $status = $apartments ? 200 : 404;
             $response = $apartments ? ["success" => true, "results" => $apartments] : ["error" => "There are no sponsored apartments right now"];
