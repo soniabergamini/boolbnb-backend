@@ -104,7 +104,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item rounded">
+                        <li class="nav-item rounded specialItem">
                             <a class="nav-link topLink text-body-secondary py-3" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-3"></i> {{ __('Logout') }}

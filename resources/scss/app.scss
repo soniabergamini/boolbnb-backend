@@ -638,6 +638,10 @@ header {
 @media (max-width: 768px) {
     .hiddenMenu {
         display: block !important;
+
+        .specialItem{
+            display: none;
+        }
     }
 
     .topLink{
