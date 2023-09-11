@@ -545,6 +545,20 @@ header {
 
 }
 
+/* MEDIA QUERY */
+
+@media (max-width: 1327px) {
+    .sideLink{
+       font-size: 12px;
+   }
+}
+
+@media (max-width: 1125px) {
+    .sideLink{
+       font-size: 9.5px;
+   }
+}
+
 @media (max-width: 992px) {
     .checkout, .success, .failed {
         flex-direction: column !important;
@@ -574,6 +588,41 @@ header {
         width: 100%;
     }
 
+
+    /* BOTTOM HEADER NAVBAR */
+
+    .hiddenMenu {
+        display: block !important;
+    }
+
+    .topLink{
+        font-size: 11px;
+    }
+
+    /* ADMIN.BLADE */
+
+    #sidebarMenu{
+        display: none !important;
+    }
+
+    .castomMain{
+        width: 100vw;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .hiddenMenu {
+        display: block !important;
+    }
+
+    .topLink{
+        font-size: 11px;
+    }
+
+    .topLink>i{
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
@@ -583,4 +632,11 @@ header {
     .failed button {
         width: 100%;
     }
+}
+
+@media (max-width: 475px) {
+    .topLink{
+        font-size: 9px;
+    }
+    
 }

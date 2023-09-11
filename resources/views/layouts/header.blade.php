@@ -4,7 +4,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="http://localhost:5173/">
                 <img src="/logo4.jpeg" alt="logo" class="img-fluid logo">
-                {{-- config('app.name', 'Laravel') --}}
+      
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -60,6 +60,7 @@
         </div>
     </nav>
 </header>
+
 {{-- HIDDEN SECTION --}}
 
 <section>
@@ -70,41 +71,41 @@
                     <ul class="nav d-flex justify-content-evenly">
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3" href="/">
+                            <a class="nav-link topLink text-body-secondary py-3" href="/">
                                 <i class="fa-solid fa-home-alt fa-lg fa-fw me-3"></i> Home
                             </a>
                         </li>
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange rounded' : '' }}"
+                            <a class="nav-link topLink text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-orange rounded' : '' }}"
                                 href="{{ route('admin.dashboard') }}">
                                 <i class="fa-solid fa-tachometer-alt fa-lg fa-fw me-3"></i> Dashboard
                             </a>
                         </li>
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-orange rounded' : '' }}"
+                            <a class="nav-link topLink text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.index' ? 'bg-orange rounded' : '' }}"
                                 href="{{ route('admin.apartments.index') }}">
                                 <i class="fa-solid fa-building-user  fa-lg fa-fw me-3"></i> Apartments
                             </a>
                         </li>
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-orange rounded' : '' }}"
+                            <a class="nav-link topLink text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.apartments.create' ? 'bg-orange rounded' : '' }}"
                                 href="{{ route('admin.apartments.create') }}">
                                 <i class="fa-solid fa-plus fa-lg fa-fw me-3"></i> Add
                             </a>
                         </li>
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}"
+                            <a class="nav-link topLink text-body-secondary py-3 {{ Route::currentRouteName() == 'admin.messages.index' ? 'bg-orange rounded' : '' }}"
                                 href="{{ route('admin.messages.index') }}">
                                 <i class="fa-solid fa-envelope fa-lg fa-fw me-3"></i> Messages
                             </a>
                         </li>
 
                         <li class="nav-item rounded">
-                            <a class="nav-link text-body-secondary py-3" href="{{ route('logout') }}"
+                            <a class="nav-link topLink text-body-secondary py-3" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fa-solid fa-sign-out-alt fa-lg fa-fw me-3"></i> {{ __('Logout') }}
                             </a>
@@ -121,20 +122,3 @@
     </div>
 </section>
 
-<style scoped>
-    /* MEDIA QUERY */
-
-    @media (max-width: 992px) {
-        .hiddenMenu {
-            display: block !important;
-            font-size: 10px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        .hiddenMenu {
-            display: block !important;
-            font-size: 10px;
-        }
-    }
-</style>
