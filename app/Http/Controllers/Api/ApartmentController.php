@@ -11,11 +11,13 @@ class ApartmentController extends Controller
 {
     public function all()
     {
-        $apartments = Apartment::with('services')->where('visible', true)->get();
+        $apartments = Apartment::with(['services', 'sponsorships'])->where('visible', true)->get();
+
         $response = [
             "success" => true,
             "results" => $apartments
         ];
+
         return response()->json($response);
     }
 
@@ -46,8 +48,8 @@ class ApartmentController extends Controller
                 ->where('end_date', '>=', $today);
         })->where('visible', true)->get();
 
-            $status = $apartments ? 200 : 404;
-            $response = $apartments ? ["success" => true, "results" => $apartments] : ["error" => "There are no sponsored apartments right now"];
+        $status = $apartments ? 200 : 404;
+        $response = $apartments ? ["success" => true, "results" => $apartments] : ["error" => "There are no sponsored apartments right now"];
 
         return response()->json($response, $status);
     }
