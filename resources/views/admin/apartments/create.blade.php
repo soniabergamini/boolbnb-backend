@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid mt-4 d-flex justify-content-center">
-        <div class="row col-10">
+        <div class="row col-12 col-xl-10">
            
             <h1 class="mb-5 colPrimaryOrange">Insert new apartment</h1>
             @if ($errors->any())
@@ -71,7 +71,7 @@
 
                 <div class="d-flex flex-wrap justify-content-between mt-5">
                     
-                    <div class="mt-3 ">
+                    <div class="col-12 col-md-5">
                         <label class="mb-1 colLightOrange" for="address">Full address</label>
                         <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam" name="address" id="address"
                             value="{{ old('address') }}" class="form-control @error('address') is-invalid @enderror">
@@ -80,45 +80,33 @@
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
 
-                    
-                </div>
-                <div class="mt-3">
-                    <label class="mb-1 colLightOrange" for="image">Upload image</label>
-                    <div class="d-flex align-items-center p-2 gap-2">
-                        <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}"
-                            alt="img" width="50" height="50" class="object-fit-cover rounded">
-                        <input required type="file" name="image" id="imgCreate"
-                            class="form-control @error('image') is-invalid @enderror">
+                    <div class="col-12 mt-3 col-md-5 mt-md-0">
+                        <label class="mb-1 colLightOrange" for="image">Upload image</label>
+                        <div class="d-flex align-items-center p-2 gap-2">
+                            <img id="previewCreate" src="{{ asset('/storage') . '/placeholder/placeholder-img.png' }}"
+                                alt="img" width="50" height="50" class="object-fit-cover rounded">
+                            <input required type="file" name="image" id="imgCreate"
+                                class="form-control @error('image') is-invalid @enderror">
+                        </div>
                     </div>
-                </div>
-                @error('image')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                @enderror
-                {{-- JS UPLOAD IMG PREVIEW --}}
-                <script>
-                    imgCreate.onchange = evt => {
-                        const [file] = imgCreate.files
-                        if (file) {
-                            previewCreate.src = URL.createObjectURL(file)
+                    @error('image')
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                    @enderror
+                    {{-- JS UPLOAD IMG PREVIEW --}}
+                    <script>
+                        imgCreate.onchange = evt => {
+                            const [file] = imgCreate.files
+                            if (file) {
+                                previewCreate.src = URL.createObjectURL(file)
+                            }
                         }
-                    }
-                </script>
-                <p class="colLightOrange mt-3 ms-0">Visible</p>
-                <div class="d-flex">
-                    <div class="form-check me-3">
-                        <input class="form-check-input" type="radio" value="1" name="visible" id="visible" checked>
-                        <label class="form-check-label" for="visible">Yes</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" value="0" name="visible" id="visible2">
-                        <label class="form-check-label" for="visible2">No</label>
-                    </div>
+                    </script>
                 </div>
                 <div class="mt-3">
-                    <label class=" mb-1">Select services:</label>
+                    <label class=" mb-1 colLightOrange">Select services:</label>
                     <div class="d-flex flex-wrap">
                         @foreach ($services as $i => $item)
-                            <div class="form-check w-25">
+                            <div class="form-check checkRespons">
                                 <input type="checkbox" name="services[]" id="services{{ $i }}"
                                     value="{{ $item->id }}" class="form-check-input" @checked(in_array($item->id, old('services') ?? []))>
                                 <label for="services{{ $i }}"
@@ -127,10 +115,29 @@
                         @endforeach
                     </div>
                 </div>
-                @error('services')
-                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                @enderror
-                <button type="submit" class="btn castomButton text-white border border-light-subtle my-3">Add</button>
+
+                <div class="d-flex flex-wrap justify-content-between mt-4"> 
+                    <div class="col-12 col-sm-6"> 
+                        <p class="colLightOrange mt-3 ms-0">Visible</p>
+                        <div class="d-flex">
+                            <div class="form-check me-3">
+                                <input class="form-check-input" type="radio" value="1" name="visible" id="visible" checked>
+                                <label class="form-check-label" for="visible">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" value="0" name="visible" id="visible2">
+                                <label class="form-check-label" for="visible2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    @error('services')
+                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                    @enderror
+                    <button type="submit" class="btn castomButton text-white mt-4 col-8 col-sm-3">Add</button>
+
+                </div>
+
             </form>
            
 
@@ -145,47 +152,23 @@
         background: #22222210 !important;
     }
 
-    .btnEdit{
-        padding: 10px 20px;
-        color: #F9913D;
-        font-size: 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        overflow: hidden;
-        transition: .5s;
-        margin-top: 40px;
-        letter-spacing: 4px;
-        border: none;
-        border-radius: 5px;
-
-    }
-    .btnEdit:hover{
-        background: rgba(230, 116, 85);
-        color: #fff;
-        border-radius: 5px;
-        box-shadow: 
-            0 0 5px rgb(230, 116, 85),
-            0 0 25px rgba(230, 116, 85),
-            0 0 50px rgba(230, 116, 85),
-            0 0 100px rgba(230, 116, 85);
-
-    }
 
     /* MEDIA */
 
-    @media (max-width: 400px) {
+    @media (max-width: 411px) {
         .castomForm{
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 1.5rem !important;
         background: #22222210 !important;
         }
         .checkRespons{
             width: 100% !important;
+
          }
     }
 
-    @media (min-width: 401px) {
+    @media (min-width: 412px) {
         .castomForm{
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 0.4rem !important;
         background: #22222210 !important;
         }
         .checkRespons{
@@ -193,7 +176,19 @@
          }
     }
 
-    @media (min-width: 570px) {
+    @media (min-width: 768px) {
+        .castomForm{
+        padding: 1rem 2.5rem !important;
+        background: #22222210 !important;
+        } 
+
+         .checkRespons{
+
+            width: 30% !important;
+        }
+
+    }
+    @media (min-width: 932px) {
         .castomForm{
         padding: 1rem 0.5rem !important;
         background: #22222210 !important;
@@ -201,7 +196,21 @@
 
          .checkRespons{
 
+            width: 30% !important;
+        }
+
+    }
+    @media (min-width: 1200px) {
+        .castomForm{
+        padding: 1rem 2rem !important;
+        background: #22222210 !important;
+        } 
+
+         .checkRespons{
+
             width: 25% !important;
+            padding-left: 1.6rem !important
+
         }
 
     }
