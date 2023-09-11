@@ -553,6 +553,12 @@ header {
 
 /* MEDIA QUERY */
 
+@media (max-width: 1529px) {
+    .castomCard{
+       width: 285px;
+   }
+}
+
 @media (max-width: 1327px) {
     .sideLink{
        font-size: 12px;
@@ -563,9 +569,21 @@ header {
     .sideLink{
        font-size: 9.5px;
    }
+   .castomCard{
+    width: 230px;
+}
 }
 
 @media (max-width: 992px) {
+
+    .castomCard{
+        width: 30%;
+    }
+
+    .card-text{
+        padding-left: 0;
+        font-size: 15px;
+    }
     .checkout, .success, .failed {
         flex-direction: column !important;
         justify-content: center;
@@ -643,6 +661,15 @@ header {
 @media (max-width: 475px) {
     .topLink{
         font-size: 9px;
+    }
+
+    .castomCard{
+        width: 100%;
+    }
+
+    .card-text{
+        padding-left: 10px;
+        font-size: 15px;
     }
     
 }
