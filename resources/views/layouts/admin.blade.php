@@ -25,9 +25,10 @@
  	<div id="app">
         @include('layouts.header')
  		<div id="adminContainer" class="container-fluid">
- 			<div class="row">
-				{{-- <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse"> --}}
- 				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse castomDashbord">
+
+			{{-- Sidebar --}}
+ 			<div class="row sidebarContainer">
+ 				<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar castomDashbord">
  					<div class="position-sticky pt-3">
  						<ul id="adminLeftMenu" class="nav flex-column">
 
@@ -85,3 +86,19 @@
  </body>
 
  </html>
+
+ <style scoped>
+
+	/* MEDIA QUERY */
+	
+	@media (max-width: 992px) {
+		#sidebarMenu{
+			display: none !important;
+		}
+
+		.castomMain{
+			width: 100vw;
+		}
+	}
+	
+	</style>
