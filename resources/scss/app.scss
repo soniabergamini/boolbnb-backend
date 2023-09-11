@@ -21,7 +21,9 @@ body::-webkit-scrollbar {
 }
 
 .containerBg {
-    background-image: url("bg4.jpg");
+    // background-image: url("bg4.jpg");
+    background-image: url("prova (3).jpg");
+    background-position: center bottom;
     background-size: cover;
     // background-color: #222;
     height: calc(100vh - 60px);
@@ -64,6 +66,10 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
+}
+
+.customWelcome{
+    background-color: #22222235;
 }
 
 .login-box {
