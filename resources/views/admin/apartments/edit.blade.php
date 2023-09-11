@@ -142,7 +142,7 @@
                            <div class="invalid-feedback d-block">{{ $message }}</div>
                        @enderror
                    </div>
-                   <button type="submit" class="btn castomButton text-white mt-4 col-8 col-sm-3">Save changes</button>
+                   <button type="submit" class="btn castomButton text-white mt-4 col-5 col-sm-3">Save changes</button>
                 </div>
 
                
@@ -198,13 +198,13 @@
     }
     @media (min-width: 932px) {
         .castomForm{
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 1rem !important;
         background: #22222210 !important;
         } 
 
          .checkRespons{
 
-            width: 30% !important;
+            width: 25% !important;
         }
 
     }
@@ -213,13 +213,6 @@
         padding: 1rem 2rem !important;
         background: #22222210 !important;
         } 
-
-         .checkRespons{
-
-            width: 25% !important;
-            padding-left: 1.6rem !important
-
-        }
 
     }
 
