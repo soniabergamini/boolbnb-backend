@@ -13,7 +13,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="user-box">
+                        <div class="user-box py-3">
 
                             <input id="email" type="email" name="email" required class="@error('email') is-invalid @enderror" value="{{ old('email') }}" autocomplete="email" autofocus>
                             <label class="email my-9">Email</label>
@@ -26,7 +26,7 @@
 
                         </div>
 
-                        <div class="user-box">
+                        <div class="user-box py-3">
 
                             <input id="password" type="password" name="password" required class="@error('password') is-invalid @enderror" autocomplete="current-password">
                             <label class="my-9" for="password">Password</label>

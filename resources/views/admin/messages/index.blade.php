@@ -37,7 +37,7 @@
                         <div class="w-15 p-2 position-relative message">
                             <img src="{{ asset('/storage') . '/' . $message->apartment->image }}"
                                 :alt="$message->apartment->name" class="img-fluid rounded">
-                            <p class="position-absolute top-50 start-50 translate-middle text-center">
+                            <p class="position-absolute top-50 start-50 translate-middle text-center text-white">
                                 {{ $message->apartment->name }}</p>
                         </div>
                         <p class="w-25 m-0">{{ $message->user_mail }}</p>
