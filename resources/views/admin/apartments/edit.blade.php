@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-fluid mt-4 d-flex justify-content-center ">
-        <div class="row col-10 ">
+        <div class="row col-12 col-xl-10">
             <h1 class="mb-5 colPrimaryOrange">Edit {{ $apartment->name ?? 'your' }} apartment</h1>
 
             @if ($errors->any())
@@ -15,7 +15,7 @@
                 </div>
             @endif
                 
-            <form  class="form-control needs-validation  castomForm " action="{{ route('admin.apartments.update', $apartment) }}" method="post" enctype="multipart/form-data">
+            <form  class="form-control needs-validation castomForm " action="{{ route('admin.apartments.update', $apartment) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
 
@@ -142,7 +142,7 @@
                            <div class="invalid-feedback d-block">{{ $message }}</div>
                        @enderror
                    </div>
-                   <button type="submit" class="btnEdit mt-4 col-12 col-sm-6">Save changes</button>
+                   <button type="submit" class="btn castomButton text-white mt-4 col-8 col-sm-3">Save changes</button>
                 </div>
 
                
@@ -160,47 +160,23 @@
         background: #22222210 !important;
     }
 
-    .btnEdit{
-        padding: 10px 20px;
-        color: #F9913D;
-        font-size: 16px;
-        text-decoration: none;
-        text-transform: uppercase;
-        overflow: hidden;
-        transition: .5s;
-        margin-top: 40px;
-        letter-spacing: 4px;
-        border: none;
-        border-radius: 5px;
-
-    }
-    .btnEdit:hover{
-        background: rgba(230, 116, 85);
-        color: #fff;
-        border-radius: 5px;
-        box-shadow: 
-            0 0 5px rgb(230, 116, 85),
-            0 0 25px rgba(230, 116, 85),
-            0 0 50px rgba(230, 116, 85),
-            0 0 100px rgba(230, 116, 85);
-
-    }
 
     /* MEDIA */
 
-    @media (max-width: 400px) {
+    @media (max-width: 411px) {
         .castomForm{
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 1.5rem !important;
         background: #22222210 !important;
         }
         .checkRespons{
             width: 100% !important;
+
          }
     }
 
-    @media (min-width: 401px) {
+    @media (min-width: 412px) {
         .castomForm{
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 0.4rem !important;
         background: #22222210 !important;
         }
         .checkRespons{
@@ -208,7 +184,19 @@
          }
     }
 
-    @media (min-width: 570px) {
+    @media (min-width: 768px) {
+        .castomForm{
+        padding: 1rem 2.5rem !important;
+        background: #22222210 !important;
+        } 
+
+         .checkRespons{
+
+            width: 30% !important;
+        }
+
+    }
+    @media (min-width: 932px) {
         .castomForm{
         padding: 1rem 0.5rem !important;
         background: #22222210 !important;
@@ -216,7 +204,21 @@
 
          .checkRespons{
 
+            width: 30% !important;
+        }
+
+    }
+    @media (min-width: 1200px) {
+        .castomForm{
+        padding: 1rem 2rem !important;
+        background: #22222210 !important;
+        } 
+
+         .checkRespons{
+
             width: 25% !important;
+            padding-left: 1.6rem !important
+
         }
 
     }
