@@ -24,6 +24,7 @@ class Apartment extends Model
         'user_id'
     ];
 
+
     // One to Many Relation Message -> Apartment
     public function messages()
     {
@@ -52,6 +53,5 @@ class Apartment extends Model
     public function sponsorships()
     {
         return $this->belongsToMany(Sponsorship::class)->withPivot('start_date', 'end_date')->withTimestamps();
-        // return $this->belongsToMany(Sponsorship::class);
     }
 }

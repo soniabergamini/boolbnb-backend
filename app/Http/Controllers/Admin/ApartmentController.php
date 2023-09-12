@@ -9,6 +9,7 @@ use App\Models\Apartment;
 use App\Models\Service;
 use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
@@ -86,11 +87,15 @@ class ApartmentController extends Controller
         if ($apartment->user_id != Auth::id()) {
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
-
         $sponsorships = Sponsorship::all();
+        $apartSponsorship = $apartment->sponsorships;
+        $sortedSponsorships = $apartment->sponsorships->sortByDesc(function ($sponsorship) {
+            return $sponsorship->pivot->end_date;
+        });
 
-        return view("admin.apartments.show", compact('apartment', 'sponsorships'));
+        return view("admin.apartments.show", compact('apartment', 'sponsorships', 'sortedSponsorships'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
