@@ -25,7 +25,7 @@
                 <p>There are no messages to display.</p>
             </div>
         @else
-            <section class="p-2 mx-2 text-body-secondary">
+            <section class="p-2 mx-2 text-body-secondary messageTablet">
                 <div class="d-flex p-2 text-body-secondary castomBruno">
                     <p class="w-15 m-0"><strong>Apartment Image</strong></p>
                     <p class="w-25 m-0"><strong>User Email</strong></p>
@@ -48,6 +48,7 @@
                 @endforelse
             </section>
         @endif
+
 
         {{-- OffCanvas --}}
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -73,6 +74,27 @@
             </div>
         </div>
 
+    </div>
+
+
+    {{-- Mobile --}}
+
+    <div class="container messageMobile">
+        <div class="row">
+
+            @foreach ($messages as $message)
+
+                <div class="col-12 border p-2 rounded my-2 bg-white">
+                    <h6 class="fw-bold"><i class="fa-solid fa-house-laptop mx-2" style="color: #000000;"></i>{{ $message->apartment->name }}</h6>
+                    <hr class="mb-2 mt-0 colPrimaryOrange border-3">
+                    <p class="fw-semibold">{{ $message->user_mail }}</p>
+                    <p>{{ $message->text }}</p>
+                </div>
+            
+
+            @endforeach
+
+        </div>
     </div>
 
 @endsection
