@@ -15,6 +15,14 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Paytone+One&display=swap" rel="stylesheet">
+
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
@@ -27,11 +35,12 @@
             <div class="container">
 
                 <div class="logoContainer d-flex align-items-center">
-                    <a class="navbar-brand d-flex align-items-center" href="@env('APP_FRONTEND_URL') @endenv">
+
+                    <a class="navbar-brand d-flex align-items-center" href="http://localhost:5173/">
                         <img src="./logo4.jpeg" alt="logo" class="img-fluid logo">
                         {{-- config('app.name', 'Laravel') --}}
                     </a>
-                    <h4 class="mt-2">BoolBnb</h4>
+                    <h4 class="mt-2 logoText">BoolBnb</h4>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

@@ -13,15 +13,32 @@
 
     <div class="container">
         <div class="row">
-            <h2 class="colPrimaryOrange my-5">{{ $apartment->name }}</h2>
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="colPrimaryOrange my-5">{{ $apartment->name }}</h2>
+
+                <div class="d-flex mt-4 ms-5">
+                    <div>
+                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="border border-primary btn text-decoration-none me-3 px-4">
+                            <i class="fa-solid fa-pen-to-square"></i>  Edit 
+                        </a>
+                    </div>
+
+                    <div>
+                        <form  action="{{ route('admin.apartments.destroy', $apartment) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class=" border border-danger btn text-decoration-none" type="submit"> <i class="fa-solid fa-trash-can"></i> Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-12 col-lg-6">
                 {{-- img --}}
-                <div class="">
+                <div class="mb-4">
                     <img src="{{ asset('/storage') . '/' . $apartment->image }}" class="rounded-2 object-fit-cover"
                         alt="apartment image">
                 </div>
-
             </div>
             <div class="col-12 col-lg-6 py-3">
                 {{-- info apartment --}}
@@ -45,23 +62,13 @@
                     @endforelse
                 </ul>
                 <hr>
-                <div class="d-flex">
-                    <div class="">
-                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="castomDiv ">
-                            Edit <i class="fa-solid fa-pen-to-square castomIcon"></i>
-                        </a>
-                    </div>
-
-                    <div>
-                        <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="bntDelete" type="submit"> Delete <i class="fa-solid fa-trash-can"></i></button>
-                        </form>
-                    </div>
-
-                </div>
             </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="w-100">
+            <p><strong class="colPrimaryOrange">Description</strong></p>
+            <p>{{ $apartment->description }}</p>
         </div>
     </div>
 
@@ -96,20 +103,23 @@
             </div>
         </div>
     </div>
-    <hr>
+
     <div class="container">
+        @if (count($apartment->sponsorships) > 0)
+            <hr>
+            <h2 class="colPrimaryOrange my-4">Your sponsorships</h2>
+        @endif
 
-        <h2 class="colPrimaryOrange">Your sponsorships</h2>
 
-        
+
 
         @foreach ($sortedSponsorships as $apartSponsorship)
             <div class=" bg-white my-3 border p-3 d-flex flex-column align-items-center rounded-4 sponsCard">
                 <div class="row w-100 cardTitle mt-2">
                     <div class="col-10 d-flex align-items-center">
-                        <h6>{{ $apartSponsorship->name }} Sponsorship </h6>
-                        <h6 class="mx-1"> &#183; </h6>
-                        <h6 class="mb-2">{{ $apartSponsorship->price }}€</h6>
+                        <h6 class="cardSponsorHeader">{{ $apartSponsorship->name }} Sponsorship </h6>
+                        <h6 class="mx-1 cardSponsorHeader"> &#183; </h6>
+                        <h6 class="mb-2 cardSponsorHeader">{{ $apartSponsorship->price }}€</h6>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-center mb-3">
                         <i

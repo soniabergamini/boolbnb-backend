@@ -48,7 +48,9 @@
         <hr class="my-4">
 
         {{-- Sponsored Apartments Section --}}
-        <h4 class="text-secondary w-100 mb-1" class="">SPONSORED APARTMENTS</h4>
+        
+        <h4 class="text-secondary w-100 mb-1">SPONSORED APARTMENTS</h4>
+        
         <div class="d-flex gap-3 px-1 sponsSec">
 
             @foreach ($apartments as $apartment)
@@ -60,7 +62,7 @@
                     </div>
                     <div class="row w-100 cardTitle mt-2">
                         <div class="col-10 d-flex align-items-center">
-                            <h6>{{ $apartment->name }}</h6>
+                            <h6 class="apartName">{{ $apartment->name }}</h6>
                         </div>
                         <div class="col-2 d-flex align-items-center justify-content-center">
                             <i class="fa-solid fa-circle-check text-success fa-xl"></i>

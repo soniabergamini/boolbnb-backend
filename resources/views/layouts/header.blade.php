@@ -2,11 +2,13 @@
 
     <nav class="navbar navbar-expand-md bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="http://localhost:5173/">
-                <img src="/logo4.jpeg" alt="logo" class="img-fluid logo">
-      
-            </a>
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center me-2" href="http://localhost:5173/">
+                    <img src="/logo4.jpeg" alt="logo" class="img-fluid logo"> 
 
+                </a>
+                <h4 class="logoText mt-2">BoolBnb</h4>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="{{ __('Toggle navigation') }}">
@@ -121,4 +123,3 @@
         </div>
     </div>
 </section>
-
