@@ -612,7 +612,6 @@ header {
         width: 100%;
     }
 
-
     /* BOTTOM HEADER NAVBAR */
 
     .hiddenMenu {
@@ -633,6 +632,24 @@ header {
         width: 100vw;
     }
 
+}
+
+@media (min-width: 768px){
+        
+    .messageMobile{
+        display: none !important;
+    }
+
+    .messageTablet{
+        display: block !important;
+    }
+}
+
+@media (max-width: 767px){
+
+    .messageTablet{
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {
