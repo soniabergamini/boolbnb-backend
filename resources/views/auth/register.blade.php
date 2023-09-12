@@ -4,9 +4,9 @@
 
 
 <div class="containerBg">
-    <div class="castomCont d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-center pt-5">
 
-        <div class="container login-box my-4 containerCastom">
+        <div class="container login-box containerCastom">
             <div class="row">
                 <div class="col">
 
