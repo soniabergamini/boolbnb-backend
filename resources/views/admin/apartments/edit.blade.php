@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid mt-4 d-flex justify-content-center ">
         <div class="row col-12 col-xl-10">
-            <h1 class="mb-5 colPrimaryOrange">Edit {{ $apartment->name ?? 'your' }} apartment</h1>
+            <h1 class="mb-4 colPrimaryOrange">Edit {{ $apartment->name ?? 'your' }} apartment</h1>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             @endif
-                
+
             <form  class="form-control needs-validation castomForm " action="{{ route('admin.apartments.update', $apartment) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method("PUT")
@@ -36,7 +36,7 @@
                     <div class="invalid-feedback d-block">{{ $message }}</div>
                 @enderror
 
-                
+
                 <div class="d-flex justify-content-between flex-wrap mt-4">
 
                     <div class="mt-3 col-12 col-sm-5 col-md-2 ">
@@ -65,7 +65,7 @@
                     @enderror
 
                     <div class="mt-3 col-12 col-sm-5 col-md-2 ">
-                        <label class="mb-1 colLightOrange" for="square_meters">Sq. m</label>
+                        <label class="mb-1 colLightOrange" for="square_meters">Square Meters</label>
                         <input required type="number" max="5000" name="square_meters" id="square_meters"
                             value="{{ old('square_meters') ?? $apartment->square_meters }}" class="form-control @error('square_meters') is-invalid @enderror">
                     </div>
@@ -73,7 +73,7 @@
                         <div class="invalid-feedback d-block">{{ $message }}</div>
                     @enderror
                 </div>
-                
+
                <div class="d-flex flex-wrap justify-content-between mt-5">
 
                    <div class=" col-12 col-md-5">
@@ -100,7 +100,7 @@
                     </div>
                     @error('image')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
-                    @enderror   
+                    @enderror
                     {{-- JS UPLOAD IMG PREVIEW --}}
                     <script>
                         imgCreate.onchange = evt => {
@@ -145,7 +145,7 @@
                    <button type="submit" class="btn castomButton text-white mt-4 col-5 col-sm-3">Save changes</button>
                 </div>
 
-               
+
             </form>
 
 
@@ -188,7 +188,7 @@
         .castomForm{
         padding: 1rem 2.5rem !important;
         background: #22222210 !important;
-        } 
+        }
 
          .checkRespons{
 
@@ -200,7 +200,7 @@
         .castomForm{
         padding: 1rem 1rem !important;
         background: #22222210 !important;
-        } 
+        }
 
          .checkRespons{
 
@@ -212,8 +212,8 @@
         .castomForm{
         padding: 1rem 2rem !important;
         background: #22222210 !important;
-        } 
+        }
 
     }
 
-</style> 
+</style>

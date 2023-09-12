@@ -36,7 +36,7 @@
                     <div class="bg-white d-flex border border-secondary-subtle align-items-center  text-secondary-emphasis">
                         <div class="w-15 p-2 position-relative message">
                             <img src="{{ asset('/storage') . '/' . $message->apartment->image }}"
-                                :alt="$message->apartment->name" class="img-fluid rounded">
+                                :alt="$message->apartment->name" class="mw-100 rounded h-104">
                             <p class="position-absolute top-50 start-50 translate-middle text-center text-white">
                                 {{ $message->apartment->name }}</p>
                         </div>
@@ -90,7 +90,7 @@
                     <p class="fw-semibold">{{ $message->user_mail }}</p>
                     <p>{{ $message->text }}</p>
                 </div>
-            
+
 
             @endforeach
 

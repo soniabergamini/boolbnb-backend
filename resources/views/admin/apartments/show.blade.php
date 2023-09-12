@@ -14,23 +14,26 @@
     <div class="container">
         <div class="row">
             <div class="d-flex align-items-center justify-content-between">
-                <h2 class="colPrimaryOrange my-5">{{ $apartment->name }}</h2>
-
-                <div class="d-flex mt-4 ms-5">
+                <h2 class="colPrimaryOrange mt-5 mb-2">{{ $apartment->name }}</h2>
+            </div>
+            <div class="col-12 mt-2">
+                <div class="d-flex justify-content-end">
                     <div>
-                        <a href="{{ route('admin.apartments.edit', $apartment) }}" class="border border-primary btn text-decoration-none me-3 px-4">
-                            <i class="fa-solid fa-pen-to-square"></i>  Edit 
+                        <a href="{{ route('admin.apartments.edit', $apartment) }}"
+                            class="border border-primary btn text-decoration-none me-3 px-4 py-1">
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
                         </a>
                     </div>
-
                     <div>
-                        <form  action="{{ route('admin.apartments.destroy', $apartment) }}" method="post">
+                        <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post" class="mb-2">
                             @csrf
                             @method('DELETE')
-                            <button class=" border border-danger btn text-decoration-none" type="submit"> <i class="fa-solid fa-trash-can"></i> Delete</button>
+                            <button class=" border border-danger btn text-decoration-none py-1" type="submit"> <i
+                                    class="fa-solid fa-trash-can"></i> Delete</button>
                         </form>
                     </div>
                 </div>
+                <hr class="mt-0 mb-3">
             </div>
 
             <div class="col-12 col-lg-6">
@@ -53,7 +56,7 @@
                 <p class="mx-2">Visible to guests: {{ $apartment->visible ? 'VISIBLE' : 'HIDDEN' }}</p>
                 <hr>
                 <p class="colPrimaryOrange"><strong>Additional Services: </strong>
-                <ul class="d-flex flex-wrap p-0">
+                <ul class="d-flex flex-wrap p-0 services">
                     @forelse ($apartment->services as $service)
                         <li class="p-2 icons"> <i class="{{ $service->icon }} colPrimaryOrange"></i>
                             {{ $service->name }} </li>
@@ -97,7 +100,6 @@
                                 onclick="window.location=`{{ route('admin.payment.token', ['apartment' => $apartment, 'sponsorship' => $sponsorship]) }}`"
                                 class="mt-3 btn border rounded castomBtn">Pay</button>
                         </div>
-
                     </div>
                 @endforeach
             </div>
@@ -109,9 +111,6 @@
             <hr>
             <h2 class="colPrimaryOrange my-4">Your sponsorships</h2>
         @endif
-
-
-
 
         @foreach ($sortedSponsorships as $apartSponsorship)
             <div class=" bg-white my-3 border p-3 d-flex flex-column align-items-center rounded-4 sponsCard">
@@ -138,7 +137,6 @@
             </div>
         @endforeach
 
-
     </div>
 @endsection
 
@@ -156,6 +154,17 @@
         list-style-type: none;
         width: calc(100% / 3 - 15px);
         transition: all .7s ease-in-out;
+    }
+
+    @media (max-width: 576px) {
+        ul.services {
+            row-gap: 2px;
+            column-gap: 5px;
+
+            &>li {
+                width: calc(100% / 2 - 5px);
+            }
+        }
     }
 
     .castomDiv {

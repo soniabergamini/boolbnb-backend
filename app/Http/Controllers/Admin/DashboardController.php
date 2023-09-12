@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $messages = Message::whereIn('apartment_id', Auth::user()->apartments->pluck('id'))
             ->with('apartment')
             ->orderBy('created_at', 'desc')
-            // ->take(3)
+            ->take(5)
             ->get();
 
         return view('admin.dashboard', compact('sponsApartments', 'messages'));

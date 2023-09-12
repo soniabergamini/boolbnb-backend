@@ -100,8 +100,6 @@
         @else
             <div class="row bg-white my-3">
                 <span class="text-center col-12 py-3 text-secondary">You don't have any of your apartments currently sponsored. Whenever you decide to sponsor one, it will be displayed here. 😊</span>
-
-
         </div>
         @endif
     </div>

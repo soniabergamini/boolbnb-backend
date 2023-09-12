@@ -56,7 +56,7 @@
             </div>
         </div>
         <div class="px-4 mt-2 mb-1 d-flex justify-content-center">
-            <button type="button" onclick="window.location=`{{ route('admin.dashboard') }}`" class="btn castomButton text-white border border-light-subtle"><i class="fa-solid fa-arrow-left text-white"></i> Go Back Home</button>
+            <button type="button" onclick="window.location=`{{ route('admin.apartments.show', $apartment) }}`" class="btn castomButton text-white border border-light-subtle"><i class="fa-solid fa-arrow-left text-white"></i> GO BACK</button>
         </div>
 
     </div>

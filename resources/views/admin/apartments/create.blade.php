@@ -3,8 +3,8 @@
 @section('content')
     <div class="container-fluid mt-4 d-flex justify-content-center">
         <div class="row col-12 col-xl-10">
-           
-            <h1 class="mb-5 colPrimaryOrange">Insert new apartment</h1>
+
+            <h1 class="mb-4 colPrimaryOrange">Insert new apartment</h1>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -60,7 +60,7 @@
                     @enderror
 
                     <div class="mt-3 col-12 col-sm-5 col-md-2">
-                        <label class="mb-1 colLightOrange" for="square_meters">Sq. m</label>
+                        <label class="mb-1 colLightOrange" for="square_meters">Square Meters</label>
                         <input required type="number" max="5000" name="square_meters" id="square_meters"
                             value="{{ old('square_meters') }}" class="form-control @error('square_meters') is-invalid @enderror">
                     </div>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="d-flex flex-wrap justify-content-between mt-5">
-                    
+
                     <div class="col-12 col-md-5">
                         <label class="mb-1 colLightOrange" for="address">Full address</label>
                         <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam" name="address" id="address"
@@ -116,8 +116,8 @@
                     </div>
                 </div>
 
-                <div class="d-flex flex-wrap justify-content-between mt-4"> 
-                    <div class="col-12 col-sm-6"> 
+                <div class="d-flex flex-wrap justify-content-between mt-4">
+                    <div class="col-12 col-sm-6">
                         <p class="colLightOrange mt-3 ms-0">Visible</p>
                         <div class="d-flex">
                             <div class="form-check me-3">
@@ -139,7 +139,7 @@
                 </div>
 
             </form>
-           
+
 
 
         </div>
@@ -180,7 +180,7 @@
         .castomForm{
         padding: 1rem 2.5rem !important;
         background: #22222210 !important;
-        } 
+        }
 
          .checkRespons{
 
@@ -192,7 +192,7 @@
         .castomForm{
         padding: 1rem 1rem !important;
         background: #22222210 !important;
-        } 
+        }
 
          .checkRespons{
 
@@ -204,9 +204,9 @@
         .castomForm{
         padding: 1rem 2rem !important;
         background: #22222210 !important;
-        } 
+        }
 
 
     }
 
-</style> 
+</style>

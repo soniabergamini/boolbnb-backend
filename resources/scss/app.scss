@@ -430,6 +430,10 @@ header {
 
         &>div:last-child {
             border-radius: 0 0 10px 10px;
+
+            & .h-104 {
+                height: 6.5rem;
+            }
         }
 
         // &>div:not(:first-child) {
@@ -673,7 +677,7 @@ header {
 }
 
 @media (min-width: 768px){
-        
+
     .messageMobile{
         display: none !important;
     }
