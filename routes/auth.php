@@ -58,6 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 
-    // Auth User Email
-    Route::get('/auth', [UserController::class, 'getEmail']);
+    // Auth User Email & Name
+    Route::get('/auth', [UserController::class, 'getAuth']);
 });
