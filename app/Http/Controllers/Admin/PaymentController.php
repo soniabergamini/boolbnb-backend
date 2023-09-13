@@ -21,6 +21,9 @@ class PaymentController extends Controller
         if ($apartment->user_id != Auth::id()) {
             return redirect()->back()->withErrors('You don\'t have permission to access the requested page.');
         }
+        if (!$apartment->visible) {
+            return redirect()->route('admin.apartments.show', $apartment)->withErrors('You don\'t have permission to access the requested page. Your apartment must be visible to be sponsored.');
+        }
 
         // Generates a payment token
         $gateway = new Gateway([

@@ -60,6 +60,7 @@ class ApartmentSeeder extends Seeder
                 $apartmentServices[] = $services->random()->id;
             }
             // Add Random Sponsorship
+            $imageNum === 26 && $sponsPresence = false;
             $apartmentsponsorship = $sponsPresence ? $sponsorships->random()->id : null;
 
             $newApartment->save();

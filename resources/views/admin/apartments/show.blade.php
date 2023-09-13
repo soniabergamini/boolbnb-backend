@@ -2,7 +2,7 @@
 @section('content')
 
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div class="alert alert-danger mt-2 mb-0 text-center">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="d-flex align-items-center justify-content-between">
-                <h2 class="colPrimaryOrange mt-5 mb-2">{{ $apartment->name }}</h2>
+                <h2 class="colPrimaryOrange mt-3 mb-2">{{ $apartment->name }}</h2>
             </div>
             <div class="col-12 mt-2">
                 <div class="d-flex justify-content-end">
@@ -78,6 +78,12 @@
     <div class="container mt-5">
         <div class="row">
             <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
+            <div>
+                <p class="alert alert-danger mt-3 mb-0 text-center @if ($apartment->visible) 'd-none' @endif"><i
+                        class="fa-solid fa-circle-xmark fa-sm mt-2"></i> The apartment must be visible to be sponsored.
+                    <a href="{{ route('admin.apartments.edit', $apartment) }}" class="colPrimaryOrange fw-bold pointer">Click here</a> to edit your apartment visibility.
+                </p>
+            </div>
             <div class="col d-flex flex-wrap justify-content-between my-5">
                 @foreach ($sponsorships as $sponsorship)
                     <div class="castomCard rounded p-3 my-2">
@@ -95,11 +101,18 @@
                             </ul>
                         </div>
                         <hr>
-                        <div class="castomCardFooter">
-                            <button
-                                onclick="window.location=`{{ route('admin.payment.token', ['apartment' => $apartment, 'sponsorship' => $sponsorship]) }}`"
-                                class="mt-3 btn border rounded castomBtn">Pay</button>
-                        </div>
+                        @if ($apartment->visible)
+                            <div class="castomCardFooter">
+                                <button
+                                    onclick="window.location=`{{ route('admin.payment.token', ['apartment' => $apartment, 'sponsorship' => $sponsorship]) }}`"
+                                    class="mt-3 btn border rounded castomBtn">Pay</button>
+                            </div>
+                        @else
+                            <div class="castomCardFooter">
+                                <button class="mt-3 btn border rounded castomBtn" disabled>Pay</button>
+                            </div>
+                        @endif
+
                     </div>
                 @endforeach
             </div>

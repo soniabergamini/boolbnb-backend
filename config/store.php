@@ -50,7 +50,7 @@
                 'bathroom_number' => 3,
                 'square_meters' => 400,
                 'address' => 'Via della Stazione 35, 6780 Airolo, Switzerland',
-                'visible' => false
+                'visible' => true
             ],
             [
                 'name' => 'Mountain Cottage',
@@ -70,7 +70,7 @@
                 'bathroom_number' => 3,
                 'square_meters' => 130,
                 'address' => "Via Roma, 62, 32043 Cortina d'Ampezzo BL, Italy",
-                'visible' => true
+                'visible' => false
             ],
             [
                 'name' => 'Evergreen Haven Lodge',
@@ -240,6 +240,26 @@
                 'bathroom_number' => 1,
                 'square_meters' => 80,
                 'address' => '200 W Main St, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Mountain Haven Hideaway',
+                'description' => 'Welcome to Mountain Haven Hideaway on Maroon Creek Road, Aspen, CO. Discover the allure of this cozy retreat with stunning Rocky Mountain views. Perfect for short-term stays, blend modern comforts with mountain charm for an unforgettable Aspen experience.',
+                'room_number' => 5,
+                'bed_number' => 2,
+                'bathroom_number' => 1,
+                'square_meters' => 90,
+                'address' => 'Maroon Creek Rd, Aspen, CO 81611, United States',
+                'visible' => true
+            ],
+            [
+                'name' => 'Twin Lakes House',
+                'description' => 'Discover the perfect blend of comfort and nature in this cozy house. Ideal for short-term stays, immerse yourself in the beauty of Twin Lakes while enjoying modern amenities.',
+                'room_number' => 6,
+                'bed_number' => 3,
+                'bathroom_number' => 2,
+                'square_meters' => 130,
+                'address' => '10764 CO-82, Twin Lakes, CO 81251, Stati Uniti',
                 'visible' => true
             ]
         ],

@@ -23,7 +23,13 @@ class ApartmentController extends Controller
 
     public function index()
     {
-        $apartments = Apartment::with('services')->where('visible', true)->paginate(9);
+        $today = Carbon::now();
+        $apartments = Apartment::with('services')
+        ->where('visible', true)
+        ->whereDoesntHave('sponsorships', function ($query) use ($today) {
+            $query->where('start_date', '<=', $today)->where('end_date', '>=', $today);
+        })
+        ->paginate(6);
         $status = $apartments ? 200 : 404;
         $response = $apartments ? ["success" => true, "results" => $apartments] : ["error" => "Something went wrong while loading apartments data"];
         return response()->json($response, $status);
