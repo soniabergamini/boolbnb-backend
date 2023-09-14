@@ -2,7 +2,7 @@
 @section('content')
 
     @if ($errors->any())
-        <div class="alert alert-danger mt-2 mb-0 text-center">
+        <div class="alert alert-danger mt-3 mb-0 pb-0 text-center">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -78,12 +78,15 @@
     <div class="container mt-5">
         <div class="row">
             <h1 class="colPrimaryOrange" class="">Do you want to sponsor your apartment?</h1>
-            <div>
-                <p class="alert alert-danger mt-3 mb-0 text-center @if ($apartment->visible) 'd-none' @endif"><i
-                        class="fa-solid fa-circle-xmark fa-sm mt-2"></i> The apartment must be visible to be sponsored.
-                    <a href="{{ route('admin.apartments.edit', $apartment) }}" class="colPrimaryOrange fw-bold pointer">Click here</a> to edit your apartment visibility.
-                </p>
-            </div>
+            @if (!$apartment->visible)
+                <div>
+                    <p class="alert alert-danger mt-3 mb-0 text-center"><i class="fa-solid fa-circle-xmark fa-sm mt-2"></i>
+                        The apartment must be visible to be sponsored.
+                        <a href="{{ route('admin.apartments.edit', $apartment) }}"
+                            class="colPrimaryOrange fw-bold pointer">Click here</a> to edit your apartment visibility.
+                    </p>
+                </div>
+            @endif
             <div class="col d-flex flex-wrap justify-content-between my-5">
                 @foreach ($sponsorships as $sponsorship)
                     <div class="castomCard rounded p-3 my-2">
