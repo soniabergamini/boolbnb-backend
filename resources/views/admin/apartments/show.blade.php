@@ -17,7 +17,7 @@
                 <h2 class="colPrimaryOrange mt-3 mb-2">{{ $apartment->name }}</h2>
             </div>
             <div class="col-12 mt-2">
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-end p-2">
                     <div>
                         <a href="{{ route('admin.apartments.edit', $apartment) }}"
                             class="border border-primary btn text-decoration-none me-3 px-4 py-1">
@@ -25,12 +25,9 @@
                         </a>
                     </div>
                     <div>
-                        <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post" class="mb-2">
-                            @csrf
-                            @method('DELETE')
-                            <button class=" border border-danger btn text-decoration-none py-1" type="submit"> <i
-                                    class="fa-solid fa-trash-can"></i> Delete</button>
-                        </form>
+                        <button type="button" class="border border-danger btn text-decoration-none py-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <i class="fa-solid fa-trash-can"></i> Delete</button>
+                        </button>
                     </div>
                 </div>
                 <hr class="mt-0 mb-3">
@@ -154,6 +151,32 @@
         @endforeach
 
     </div>
+
+    {{-- Modal --}}
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Are you sure?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Cancellation is irreversible. All apartment data will be deleted.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <form action="{{ route('admin.apartments.destroy', $apartment) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class=" btn btn-danger" type="submit">
+                            <i class="fa-solid fa-trash-can"></i> Delete
+                        </button>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 <style>
