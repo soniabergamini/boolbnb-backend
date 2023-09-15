@@ -61,9 +61,7 @@ class ApartmentController extends Controller
         $data['latitude'] = $response['results']['0']['position']['lat'];
         $data['longitude'] = $response['results']['0']['position']['lon'];
 
-
         $data['image'] = Storage::put('uploads', $data['image']);
-
         $newApartment = new Apartment();
         $newApartment->fill($data);
         $newApartment->save();

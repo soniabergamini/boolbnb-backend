@@ -20,6 +20,7 @@ class Apartment extends Model
         'longitude',
         'address',
         'image',
+        'price',
         'visible',
         'user_id'
     ];

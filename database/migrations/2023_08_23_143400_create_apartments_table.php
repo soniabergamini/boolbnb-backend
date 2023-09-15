@@ -25,6 +25,7 @@ return new class extends Migration
             $table->double('longitude');
             $table->string('address');
             $table->text('image');
+            $table->double('price');
             $table->boolean('visible');
             $table->timestamps();
         });

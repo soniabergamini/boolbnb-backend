@@ -14,7 +14,8 @@
                     </ul>
                 </div>
             @endif
-            <form class="form-control needs-validation  castomForm" action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
+            <form class="form-control needs-validation  castomForm" action="{{ route('admin.apartments.store') }}"
+                method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mt-3">
                     <label class="mb-1 colLightOrange" for="name">Apartment name</label>
@@ -26,7 +27,8 @@
                 @enderror
                 <div class="mt-3">
                     <label class="mb-1 colLightOrange" for="description">Apartment description</label>
-                    <textarea required name="description" id="description" cols="10" rows="5" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
+                    <textarea required name="description" id="description" cols="10" rows="5"
+                        class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                 </div>
                 @error('description')
                     <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -34,7 +36,8 @@
                 <div class="d-flex justify-content-between flex-wrap mt-4  ">
                     <div class="mt-3 col-12 col-sm-5 col-md-2">
                         <label class="mb-1 colLightOrange" for="room_number">Rooms</label>
-                        <input required type="number" max="1500" name="room_number" id="room_number" value="{{ old('room_number') }}"
+                        <input required type="number" max="1500" name="room_number" id="room_number"
+                            value="{{ old('room_number') }}"
                             class="form-control @error('room_number') is-invalid @enderror">
                     </div>
                     @error('room_number')
@@ -43,8 +46,8 @@
 
                     <div class="mt-3 col-12 col-sm-5 col-md-2">
                         <label class="mb-1 colLightOrange" for="bed_number">Beds</label>
-                        <input required type="number" max="1500" name="bed_number" id="bed_number" value="{{ old('bed_number') }}"
-                            class="form-control @error('bed_number') is-invalid @enderror">
+                        <input required type="number" max="1500" name="bed_number" id="bed_number"
+                            value="{{ old('bed_number') }}" class="form-control @error('bed_number') is-invalid @enderror">
                     </div>
                     @error('bed_number')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -53,7 +56,8 @@
                     <div class="mt-3 col-12 col-sm-5 col-md-2">
                         <label class="mb-1 colLightOrange" for="bathroom_number">Bathrooms</label>
                         <input required type="number" max="1500" name="bathroom_number" id="bathroom_number"
-                            value="{{ old('bathroom_number') }}" class="form-control @error('bathroom_number') is-invalid @enderror">
+                            value="{{ old('bathroom_number') }}"
+                            class="form-control @error('bathroom_number') is-invalid @enderror">
                     </div>
                     @error('bathroom_number')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -62,7 +66,8 @@
                     <div class="mt-3 col-12 col-sm-5 col-md-2">
                         <label class="mb-1 colLightOrange" for="square_meters">Square Meters</label>
                         <input required type="number" max="5000" name="square_meters" id="square_meters"
-                            value="{{ old('square_meters') }}" class="form-control @error('square_meters') is-invalid @enderror">
+                            value="{{ old('square_meters') }}"
+                            class="form-control @error('square_meters') is-invalid @enderror">
                     </div>
                     @error('square_meters')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -73,8 +78,9 @@
 
                     <div class="col-12 col-md-5">
                         <label class="mb-1 colLightOrange" for="address">Full address</label>
-                        <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam" name="address" id="address"
-                            value="{{ old('address') }}" class="form-control @error('address') is-invalid @enderror">
+                        <input required type="text" placeholder="Example: De Ruijterkade 154, 1011 AC, Amsterdam"
+                            name="address" id="address" value="{{ old('address') }}"
+                            class="form-control @error('address') is-invalid @enderror">
                     </div>
                     @error('address')
                         <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -116,16 +122,30 @@
                     </div>
                 </div>
 
+                {{-- PRICE --}}
+
+                <div class="mt-3 col-12 col-sm-5 col-md-2">
+                    <label class="mb-1 colLightOrange" for="price">Price per night</label>
+                    <input required type="text" name="price" id="price" max="7" pattern="^\d{0,7}(\.\d{1,2})?$"
+                        value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror">
+                </div>
+                @error('price')
+                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                @enderror
+
                 <div class="d-flex flex-wrap justify-content-between mt-4">
                     <div class="col-12 col-sm-6">
                         <p class="colLightOrange mt-3 ms-0">Visible</p>
                         <div class="d-flex">
                             <div class="form-check me-3">
-                                <input class="form-check-input" type="radio" value="1" name="visible" id="visible" checked>
+                                <input class="form-check-input" type="radio" value="1" name="visible"
+                                    id="visible" checked>
                                 <label class="form-check-label" for="visible">Yes</label>
                             </div>
+
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" value="0" name="visible" id="visible2">
+                                <input class="form-check-input" type="radio" value="0" name="visible"
+                                    id="visible2">
                                 <label class="form-check-label" for="visible2">No</label>
                             </div>
                         </div>
@@ -147,7 +167,7 @@
 @endsection
 
 <style>
-    .castomForm{
+    .castomForm {
         padding: 1rem 3rem !important;
         background: #22222210 !important;
     }
@@ -156,57 +176,60 @@
     /* MEDIA */
 
     @media (max-width: 411px) {
-        .castomForm{
-        padding: 1rem 1.5rem !important;
-        background: #22222210 !important;
+        .castomForm {
+            padding: 1rem 1.5rem !important;
+            background: #22222210 !important;
         }
-        .checkRespons{
+
+        .checkRespons {
             width: 100% !important;
 
-         }
+        }
     }
 
     @media (min-width: 412px) {
-        .castomForm{
-        padding: 1rem 0.4rem !important;
-        background: #22222210 !important;
+        .castomForm {
+            padding: 1rem 0.4rem !important;
+            background: #22222210 !important;
         }
-        .checkRespons{
+
+        .checkRespons {
             width: 50% !important;
-         }
+        }
     }
 
     @media (min-width: 768px) {
-        .castomForm{
-        padding: 1rem 2.5rem !important;
-        background: #22222210 !important;
+        .castomForm {
+            padding: 1rem 2.5rem !important;
+            background: #22222210 !important;
         }
 
-         .checkRespons{
+        .checkRespons {
 
             width: 30% !important;
         }
 
     }
+
     @media (min-width: 932px) {
-        .castomForm{
-        padding: 1rem 1rem !important;
-        background: #22222210 !important;
+        .castomForm {
+            padding: 1rem 1rem !important;
+            background: #22222210 !important;
         }
 
-         .checkRespons{
+        .checkRespons {
 
             width: 25% !important;
         }
 
     }
+
     @media (min-width: 1200px) {
-        .castomForm{
-        padding: 1rem 2rem !important;
-        background: #22222210 !important;
+        .castomForm {
+            padding: 1rem 2rem !important;
+            background: #22222210 !important;
         }
 
 
     }
-
 </style>

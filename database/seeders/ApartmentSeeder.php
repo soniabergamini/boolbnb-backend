@@ -11,6 +11,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Schema;
+use Faker\Generator as Faker;
 
 
 class ApartmentSeeder extends Seeder
@@ -20,7 +21,7 @@ class ApartmentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
         // Prevent Drop Table
         Schema::disableForeignKeyConstraints();
@@ -50,6 +51,7 @@ class ApartmentSeeder extends Seeder
             $newApartment->longitude = $response['results']['0']['position']['lon'];
             $newApartment->address = $apartment['address'];
             $newApartment->image = 'placeholder/' .  'apartment' . $imageNum . '.jpeg';
+            $newApartment->price = $faker->randomFloat(2, 60, 300);
             $newApartment->visible = $apartment['visible'];
             $newApartment->user_id = 1;
 
